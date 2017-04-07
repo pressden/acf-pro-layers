@@ -12,19 +12,21 @@ Text Domain: acf_pro_layers
 
 add_filter( 'the_content', 'apl_content_layers_filter' );
 function apl_content_layers_filter ( $content ) {
-  // get the post object from WordPress
-  $post = get_post();
-  
   // get the layers field from ACF
-  $layers = get_field_object( 'header_layers' );
+  $layers = get_field_object( 'content_layers' );
   
-  // @TODO: exit early if $layers is empty (either null or empty depending on how ACF handles blank flex fields)
-  
-  // start the layers output
-  // @TODO: consider "before_conent" and "after_content" variables so we can wrap the standard wordpress content region
+  // initialize the output variable
   $output = '';
   
-  $content = apl_get_open_layer( 'wp-content', 'apl-wp-content' ) . '<div class="col-xs-12 wp-content">' . $content . '</div>' . apl_get_close_layer();
+  // if there are no layers wrap the WordPress content in APL markup for consistency
+  if( !$layers || ( isset( $layers['value'] ) && !$layers['value'] ) ) {
+    $layers['value'] = array(
+      0 => array(
+        'acf_fc_layout' => 'wordpress_content',
+        'content' => $content,
+      ),
+    );
+  }
   
   foreach( $layers['value'] as $key => $layer ) {
     // layer_name = template name and CSS prefix
@@ -37,6 +39,12 @@ function apl_content_layers_filter ( $content ) {
     // generate a unique ID for direct targeting
     $layer['apl-unique-id'] = 'apl-' . $key++ . '-' . $layer_name;
     
+    // make our content available to APL so it can be inserted into the WordPress Content template
+    if( $layer_name == 'wordpress-content' )
+    {
+      $layer['content'] = $content;
+    }
+    
     // get the template
     $template = apl_get_template( $layer_name );
     
@@ -44,14 +52,13 @@ function apl_content_layers_filter ( $content ) {
     $output .= apl_get_template_buffer( $template, $layer );
   }
   
-  return $output . $content;
+  return $output;
 }
 
 function apl_get_open_layer( $layer_name, $layer_id ) {
   $output = '
     <section id="' . $layer_id . '" class="' . $layer_name . '-wrapper layer-wrapper">
-      <div class="' . $layer_name . '-container layer-container container">
-        <div class="' . $layer_name . '-layer layer row">
+      <div class="' . $layer_name . '-layer layer row">
   ';
   
   return $output;
@@ -63,7 +70,6 @@ function apl_open_layer( $layer_name, $layer_id ) {
 
 function apl_get_close_layer() {
   $output = '
-        </div>
       </div>
     </section>
   ';
@@ -106,18 +112,3 @@ function apl_get_template_buffer( $template, $layer ) {
   
   return null;
 }
-
-
-/*
-// EXAMPLE: include contents into a variable
-$string = get_include_contents('somefile.php');
-
-function get_include_contents($filename) {
-    if (is_file($filename)) {
-        ob_start();
-        include $filename;
-        return ob_get_clean();
-    }
-    return false;
-}
-*/
