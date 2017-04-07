@@ -55,17 +55,17 @@ function apl_content_layers_filter ( $content ) {
   return $output;
 }
 
-function apl_get_open_layer( $layer_name, $layer_id ) {
+function apl_get_open_layer( $layer_name, $layer_id, $css_classes = null ) {
   $output = '
-    <section id="' . $layer_id . '" class="' . $layer_name . '-wrapper layer-wrapper">
+    <section id="' . $layer_id . '" class="' . $layer_name . '-wrapper layer-wrapper ' . $css_classes . '">
       <div class="' . $layer_name . '-layer layer row">
   ';
   
   return $output;
 }
 
-function apl_open_layer( $layer_name, $layer_id ) {
-  echo apl_get_open_layer( $layer_name, $layer_id );
+function apl_open_layer( $layer_name, $layer_id, $css_classes = null ) {
+  echo apl_get_open_layer( $layer_name, $layer_id, $css_classes );
 }
 
 function apl_get_close_layer() {
