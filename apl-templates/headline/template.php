@@ -11,9 +11,20 @@ $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null
 
 <?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes ); ?>
 
-  <div class="col-xs-12">
-    <h1><?php echo $title; ?></h1>
-    <h3><?php echo $dek; ?></h3>
-  </div>
+  <?php if( $title || $dek ): ?>
+    
+    <div class="col-xs-12">
+      
+      <?php if( $title ): ?>
+        <h1><?php echo $title; ?></h1>
+      <?php endif; ?>
+      
+      <?php if( $dek ): ?>
+        <h2><?php echo $dek; ?></h2>
+      <?php endif; ?>
+      
+    </div>
+    
+  <?php endif; ?>
 
 <?php apl_close_layer(); ?>
