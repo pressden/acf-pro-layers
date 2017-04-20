@@ -37,7 +37,7 @@ function apl_content_layers_filter ( $content ) {
     $layer['apl-layer-name'] = $layer_name;
     
     // generate a unique ID for direct targeting
-    $layer['apl-unique-id'] = 'apl-' . $key++ . '-' . $layer_name;
+    $layer['apl-unique-id'] = 'apl-content-' . $key++ . '-' . $layer_name;
     
     // make our content available to APL so it can be inserted into the WordPress Content template
     if( $layer_name == 'wordpress-content' )
