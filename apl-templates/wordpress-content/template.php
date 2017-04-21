@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: WordPress Content
+Template Name: APL WordPress Content
 */
 
 // layer fields

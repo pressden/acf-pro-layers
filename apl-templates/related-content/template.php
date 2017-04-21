@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: APL Related Content (Simple)
+Template Name: APL Related Content
 */
 
 // layer fields
