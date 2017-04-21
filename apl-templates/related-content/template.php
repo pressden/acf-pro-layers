@@ -37,6 +37,9 @@ $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null
     $related_post_url = null;
     $related_post_external_url = false;
     
+    // the CSS classes
+    $related_css_classes = null;
+    
     // the container
     $related_post_container = 'div';
     
@@ -56,6 +59,7 @@ $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null
         $related_post_url = $related['external_url'];
         $related_post_external_url = true;
       }
+      $related_css_classes = $related['css_classes'];
     }
     
     $related_post_container = ( !$show_buttons && $related_post_url ) ? 'a' : 'div';
@@ -64,7 +68,7 @@ $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null
     
     ?>
     
-    <<?php echo $related_post_container; ?> <?php echo ( $related_post_container == 'a' ) ? $related_post_href . ' ' . $related_post_target : ''; ?> class="related-post col-sm-<?php echo $column_size; ?>">
+    <<?php echo $related_post_container; ?> <?php echo ( $related_post_container == 'a' ) ? $related_post_href . ' ' . $related_post_target : ''; ?> class="related-post <?php echo $related_css_classes; ?> col-sm-<?php echo $column_size; ?>">
       
       <?php if( $show_titles ): ?>
         <h3 class="related-post-title text-center">
