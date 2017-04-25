@@ -70,16 +70,16 @@ $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null
     
     <<?php echo $related_post_container; ?> <?php echo ( $related_post_container == 'a' ) ? $related_post_href . ' ' . $related_post_target : ''; ?> class="related-post <?php echo $related_css_classes; ?> col-sm-<?php echo $column_size; ?>">
       
-      <?php if( $show_titles ): ?>
-        <h3 class="related-post-title text-center">
-          <?php echo $related_post_title; ?>
-        </h3>
-      <?php endif; ?>
-      
       <?php if( $show_images && $related_post_image ): ?>
         <div class="related-post-image media-container">
           <?php echo $related_post_image; ?>
         </div>
+      <?php endif; ?>
+      
+      <?php if( $show_titles ): ?>
+        <h3 class="related-post-title text-center">
+          <?php echo $related_post_title; ?>
+        </h3>
       <?php endif; ?>
       
       <?php if( $show_excerpts && $related_post_excerpt ): ?>
