@@ -58,7 +58,7 @@ function apl_content_layers_filter ( $content ) {
 function apl_get_open_layer( $layer_name, $layer_id, $css_classes = null ) {
   $output = '
     <section id="' . $layer_id . '" class="' . $layer_name . '-wrapper layer-wrapper ' . $css_classes . '">
-      <div class="' . $layer_name . '-layer layer row">
+      <div class="' . $layer_name . '-layer layer">
   ';
   
   return $output;
