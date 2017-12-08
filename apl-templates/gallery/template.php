@@ -27,7 +27,7 @@ $media_classes = null;
     
       <?php
       // full image tag
-      $image = wp_get_attachment_image( $image_object['ID'], $size, false, array( 'class' => 'img-responsive center-block ' . $image_classes ) );
+      $image = wp_get_attachment_image( $image_object['ID'], $size, false, array( 'class' => 'img-fluid rounded mx-auto d-block ' . $image_classes ) );
       
       // default media link
       $media_href = $image_object['url'];
