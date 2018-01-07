@@ -47,14 +47,14 @@ $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null
     if( $related_post ) {
       $related_post_title = $related_post->post_title;
       $related_post_excerpt = apply_filters( 'the_excerpt', get_post_field( 'post_content', $related_post->ID ) );
-      $related_post_image = get_the_post_thumbnail( $related_post->ID, 'post_thumbnail', array( 'class' => 'img-fluid rounded mx-auto d-block' ) );
+      $related_post_image = get_the_post_thumbnail( $related_post->ID, 'post_thumbnail', array( 'class' => 'img-fluid mx-auto d-block' ) );
       $related_post_url = get_the_permalink( $related_post );
     }
     
     if( $customize ) {
       $related_post_title = ( $related['title'] ) ? $related['title'] : $related_post_title;
       $related_post_excerpt = ( $related['excerpt'] ) ? apply_filters( 'the_excerpt', $related['excerpt'] ) : $related_post_excerpt;
-      $related_post_image = ( $related['image'] ) ? wp_get_attachment_image( $related['image']['ID'], 'post_thumbnail', false, array( 'class' => 'img-fluid rounded mx-auto d-block' ) ) : $related_post_image;
+      $related_post_image = ( $related['image'] ) ? wp_get_attachment_image( $related['image']['ID'], 'post_thumbnail', false, array( 'class' => 'img-fluid mx-auto d-block' ) ) : $related_post_image;
       if( $related['external_url'] ) {
         $related_post_url = $related['external_url'];
         $related_post_external_url = true;

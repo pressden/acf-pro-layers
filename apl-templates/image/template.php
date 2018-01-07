@@ -15,7 +15,7 @@ $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null
   <div class="col">
     
     <?php
-    $image_tag = wp_get_attachment_image( $image['ID'], 'full-size', false, array( 'class' => 'img-fluid rounded mx-auto d-block' ) );
+    $image_tag = wp_get_attachment_image( $image['ID'], 'full-size', false, array( 'class' => 'img-fluid mx-auto d-block' ) );
     ?>
     
     <div class="media-container">
