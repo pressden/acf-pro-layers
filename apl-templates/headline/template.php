@@ -5,9 +5,9 @@ Template Name: APL Headline
 
 // layer fields
 $title = $layer['title'];
-$title_tag = ( isset( $layer['title_tag'] ) ) ? $layer['title_tag'] : 'h1';
+$title_tag = ( isset( $layer['title_tag'] ) && !is_array( $layer['title_tag'] ) ) ? $layer['title_tag'] : 'h1';
 $dek = $layer['dek'];
-$dek_tag = ( isset( $layer['dek_tag'] ) ) ? $layer['dek_tag'] : 'h2';
+$dek_tag = ( isset( $layer['dek_tag'] ) && !is_array( $layer['dek_tag'] ) ) ? $layer['dek_tag'] : 'h2';
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
 ?>
 
