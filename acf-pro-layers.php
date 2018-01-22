@@ -55,9 +55,9 @@ function apl_content_layers_filter ( $content ) {
   return $output;
 }
 
-function apl_get_open_layer( $layer_name, $layer_id, $css_classes = null ) {
+function apl_get_open_layer( $layer_name, $layer_id, $css_classes = null, $attributes = null ) {
   $output = '
-    <section id="' . $layer_id . '" class="' . $layer_name . '-wrap layer-wrap ' . $css_classes . '">
+    <section id="' . $layer_id . '" class="' . $layer_name . '-wrap layer-wrap ' . $css_classes . '" ' . get_attributes($attributes) . '>
 			<div class="container ' . $layer_name . '-container">
       	<div class="' . $layer_name . '-layer layer row">
   ';
@@ -65,8 +65,8 @@ function apl_get_open_layer( $layer_name, $layer_id, $css_classes = null ) {
   return $output;
 }
 
-function apl_open_layer( $layer_name, $layer_id, $css_classes = null ) {
-  echo apl_get_open_layer( $layer_name, $layer_id, $css_classes );
+function apl_open_layer( $layer_name, $layer_id, $css_classes = null, $attributes = null ) {
+  echo apl_get_open_layer( $layer_name, $layer_id, $css_classes, $attributes );
 }
 
 function apl_get_close_layer() {
@@ -81,6 +81,18 @@ function apl_get_close_layer() {
 
 function apl_close_layer() {
   echo apl_get_close_layer();
+}
+
+function get_attributes($attributes) {
+
+  $ouput = '';
+
+  foreach ($attributes as $key => $attribute) {
+    $output .= $attribute['attribute'] . '="' . $attribute['value'] . '" ';
+
+  } 
+  return $output;
+  
 }
 
 function apl_get_template( $layer_name ) {

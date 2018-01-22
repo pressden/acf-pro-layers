@@ -10,7 +10,7 @@ $size = ( in_array( $layer['size'], get_intermediate_image_sizes() ) ) ? $layer[
 $link_to = $layer['link_to'];
 $image_classes = ( isset( $layer['image_classes'] ) ) ? $layer['image_classes'] : null;
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
-
+$attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 // default media container
 $media_container = 'a';
 
@@ -18,7 +18,7 @@ $media_container = 'a';
 $media_classes = null;
 ?>
 
-<?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes, 'gallery gallery-columns-' . $columns ); ?>
+<?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes, 'gallery gallery-columns-' . $columns, $attributes  ); ?>
 
 	<?php if( $link_to == 'Carousel' ): ?>
 

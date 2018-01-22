@@ -8,9 +8,10 @@ $image = $layer['image'];
 $link = $layer['link'];
 $external_url = ( isset( $layer['external_url'] ) ) ? 'target="_blank"' : null;
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
+$attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 ?>
 
-<?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes ); ?>
+<?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes ); ?>
 
   <div class="col">
     
