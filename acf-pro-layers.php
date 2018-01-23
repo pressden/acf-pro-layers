@@ -85,12 +85,16 @@ function apl_close_layer() {
 
 function get_attributes($attributes) {
 
-  $ouput = '';
+  $output = '';
 
-  foreach ($attributes as $key => $attribute) {
+  if( !is_array( $attributes ) ) {
+    return $output;
+  }
+
+  foreach ( $attributes as $key => $attribute ) {
     $output .= $attribute['attribute'] . '="' . $attribute['value'] . '" ';
-
-  } 
+  }
+ 
   return $output;
   
 }
