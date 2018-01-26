@@ -22,16 +22,20 @@ function apl_content_layers_filter ( $content ) {
   if( !$layers || ( isset( $layers['value'] ) && !$layers['value'] ) ) {
     $layers['value'] = array(
       0 => array(
-        'acf_fc_layout' => 'wordpress_content',
+        'acf_fc_layout' => 'content',
         'content' => $content,
       ),
     );
   }
   
   foreach( $layers['value'] as $key => $layer ) {
-    // layer_name = template name and CSS prefix
-    // @TODO: template_name may need some formatting depending on how ACF handles multi-word names
+    // layer_name
     $layer_name = str_replace( '_', '-', $layer['acf_fc_layout'] );
+
+		// @DEPRECATION WARNING: The WordPress Content layer has been removed. The Content layer
+		// now includes a toggle to embed WordPress content instead of custom content. The line
+		// below provides backwards compatibility to existing WordPress Content layers.
+		$layer_name = ( $layer_name == 'wordpress_content' ) ? 'content' : $layer_name;
     
     // store the layer name for later use
     $layer['apl-layer-name'] = $layer_name;
@@ -39,10 +43,10 @@ function apl_content_layers_filter ( $content ) {
     // generate a unique ID for direct targeting
     $layer['apl-unique-id'] = 'apl-content-' . $key++ . '-' . $layer_name;
     
-    // make our content available to APL so it can be inserted into the WordPress Content template
-    if( $layer_name == 'wordpress-content' )
+		// make wordpress content available to APL so it can be inserted as needed
+    if( $layer_name == 'wordpress-content' || $layer_name == 'content' )
     {
-      $layer['content'] = $content;
+      $layer['wp_content'] = $content;
     }
     
     // get the template
