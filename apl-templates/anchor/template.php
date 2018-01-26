@@ -8,4 +8,4 @@ $name = $layer['name'];
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
 ?>
 
-<a name="<?php echo $name; ?>" class="<?php echo $css_classes; ?>"></a>
+<a name="<?php echo $name; ?>" class="<?php echo $css_classes . " ";  ?>anchor"></a>
