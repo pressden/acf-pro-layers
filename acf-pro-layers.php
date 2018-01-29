@@ -11,7 +11,7 @@ Text Domain: acf_pro_layers
 */
 
 add_filter( 'the_content', 'apl_content_layers_filter' );
-function apl_content_layers_filter ( $content ) {
+function apl_content_layers_filter( $content ) {
   // get the layers field from ACF
   $layers = get_field_object( 'content_layers' );
   
@@ -87,7 +87,7 @@ function apl_close_layer() {
   echo apl_get_close_layer();
 }
 
-function get_attributes($attributes) {
+function get_attributes( $attributes ) {
 
   $output = '';
 
