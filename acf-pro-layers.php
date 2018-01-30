@@ -59,6 +59,7 @@ function apl_content_layers_filter( $content ) {
   return $output;
 }
 
+// BEGIN Layer markup helpers
 function apl_get_open_layer( $layer_name, $layer_id, $css_classes = null, $attributes = null ) {
   $output = '
     <section id="' . $layer_id . '" class="' . $layer_name . '-wrap layer-wrap ' . $css_classes . '" ' . get_attributes($attributes) . '>
@@ -86,6 +87,29 @@ function apl_get_close_layer() {
 function apl_close_layer() {
   echo apl_get_close_layer();
 }
+// END Layer markup helpers
+
+// BEGIN Wrapper markup helpers
+function apl_get_open_wrapper( $layer_name, $layer_id, $css_classes = null, $attributes = null ) {
+  $output = '<section id="' . $layer_id . '" class="' . $layer_name . '-wrap custom-wrap ' . $css_classes . '" ' . get_attributes($attributes) . '>';
+  
+  return $output;
+}
+
+function apl_open_wrapper( $layer_name, $layer_id, $css_classes = null, $attributes = null ) {
+  echo apl_get_open_wrapper( $layer_name, $layer_id, $css_classes, $attributes );
+}
+
+function apl_get_close_wrapper() {
+  $output = '</section>';
+  
+  return $output;
+}
+
+function apl_close_wrapper() {
+  echo apl_get_close_wrapper();
+}
+// END Wrapper markup helpers
 
 function get_attributes( $attributes ) {
 
