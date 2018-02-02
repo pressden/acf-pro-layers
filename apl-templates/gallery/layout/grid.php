@@ -2,6 +2,9 @@
 
 	<?php
 	$count = 0;
+	
+	// force grid and carousel to link to slider if one is available
+	$link_to = ( in_array( $layout, array( 'slider-carousel', 'slider-grid' ) ) ) ? 'Slider' : $link_to;
 	?>
 
 	<?php foreach( $images as $image_object ): ?>
@@ -24,9 +27,9 @@
         case 'Full Size Image':
         break;
 
-				case 'Carousel':
+				case 'Slider':
 					$media_href = null;
-					$carousel_navigation = 'data-target="#' .  $apl_unique_id . '-carousel" data-slide-to="' . $count . '"';
+					$carousel_navigation = 'data-target="#' .  $apl_unique_id . '-slider" data-slide-to="' . $count . '"';
         case 'No Links':
           $media_href = null;
         break;
