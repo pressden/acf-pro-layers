@@ -402,13 +402,51 @@
                                 "mime_types": ""
                             },
                             {
+                                "key": "field_5a5e98838d192",
+                                "label": "Layout",
+                                "name": "layout",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "carousel": "Carousel",
+                                    "grid": "Grid",
+                                    "slider": "Slider",
+                                    "slider-carousel": "Slider + Carousel",
+                                    "slider-grid": "Slider + Grid"
+                                },
+                                "default_value": [
+                                    "grid"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
                                 "key": "field_5914381c3b7da",
                                 "label": "Columns",
                                 "name": "columns",
                                 "type": "select",
                                 "instructions": "",
                                 "required": 1,
-                                "conditional_logic": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a5e98838d192",
+                                            "operator": "!=",
+                                            "value": "slider"
+                                        }
+                                    ]
+                                ],
                                 "wrapper": {
                                     "width": "",
                                     "class": "",
@@ -492,36 +530,6 @@
                                 "prepend": "",
                                 "append": "",
                                 "maxlength": ""
-                            },
-                            {
-                                "key": "field_5a5e98838d192",
-                                "label": "Layout",
-                                "name": "layout",
-                                "type": "select",
-                                "instructions": "",
-                                "required": 1,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "choices": {
-                                    "carousel": "Carousel",
-                                    "gallery": "Gallery",
-                                    "slider": "Slider",
-                                    "slider-carousel": "Slider + Carousel",
-                                    "slider-gallery": "Slider + Gallery"
-                                },
-                                "default_value": [
-                                    "gallery"
-                                ],
-                                "allow_null": 0,
-                                "multiple": 0,
-                                "ui": 0,
-                                "ajax": 0,
-                                "return_format": "value",
-                                "placeholder": ""
                             },
                             {
                                 "key": "field_591438d4be6cb",
@@ -1398,9 +1406,9 @@
                                 ]
                             },
                             {
-                                "key": "field_58f890ae4a445",
-                                "label": "Columns",
-                                "name": "columns",
+                                "key": "field_5a7228555f723",
+                                "label": "Layout",
+                                "name": "layout",
                                 "type": "select",
                                 "instructions": "",
                                 "required": 1,
@@ -1411,11 +1419,51 @@
                                     "id": ""
                                 },
                                 "choices": {
+                                    "carousel": "Carousel",
+                                    "grid": "Grid",
+                                    "slider": "Slider"
+                                },
+                                "default_value": [
+                                    "grid"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_58f890ae4a445",
+                                "label": "Columns",
+                                "name": "columns",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a7228555f723",
+                                            "operator": "!=",
+                                            "value": "slider"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
                                     "1": "1",
                                     "2": "2",
                                     "3": "3",
                                     "4": "4",
-                                    "6": "6"
+                                    "5": "5",
+                                    "6": "6",
+                                    "7": "7",
+                                    "8": "8",
+                                    "9": "9"
                                 },
                                 "default_value": [
                                     3
