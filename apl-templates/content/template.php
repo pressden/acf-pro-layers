@@ -18,7 +18,7 @@ $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
     
 		<?php
 		if( $headline ) {
-			echo '<' . $headline_tag . '>' . $headline . '</' . $headline_tag . '>';
+			echo '<' . $headline_tag . ' class="content-headline">' . $headline . '</' . $headline_tag . '>';
 		}
 		
 		echo $content;
