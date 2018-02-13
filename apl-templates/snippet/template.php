@@ -11,12 +11,10 @@ $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
 if( $include_wrapper ) {
 	apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes );
-	echo '<div class="col">';
 }
 
 echo $code;
 
 if( $include_wrapper ) {
-	echo '</div>';
 	apl_close_layer();
 }
