@@ -14,22 +14,22 @@ $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
 <?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes ); ?>
 
-  <?php if( $title || $dek ): ?>
-    
-    <div class="col">
-      
-      <?php
+	<?php if( $title || $dek ): ?>
+
+		<div class="col">
+
+			<?php
 			if( $title ) {
 				echo '<' . $title_tag . '>' . $title . '</' . $title_tag . '>';
 			}
-				
-      if( $dek ) {
+
+			if( $dek ) {
 				echo '<' . $dek_tag . '>' . $dek . '</' . $dek_tag . '>';
 			}
 			?>
-      
-    </div>
-    
-  <?php endif; ?>
+
+		</div>
+
+	<?php endif; ?>
 
 <?php apl_close_layer(); ?>

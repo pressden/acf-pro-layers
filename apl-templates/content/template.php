@@ -14,16 +14,16 @@ $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
 <?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes ); ?>
 
-  <div class="col">
-    
+	<div class="col">
+
 		<?php
 		if( $headline ) {
 			echo '<' . $headline_tag . ' class="content-headline">' . $headline . '</' . $headline_tag . '>';
 		}
-		
+
 		echo $content;
 		?>
-		
-  </div>
+
+	</div>
 
 <?php apl_close_layer(); ?>

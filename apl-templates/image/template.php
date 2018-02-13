@@ -13,18 +13,18 @@ $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
 <?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes ); ?>
 
-  <div class="col">
-    
-    <?php
-    $image_tag = wp_get_attachment_image( $image['ID'], 'full-size', false, array( 'class' => 'img-fluid mx-auto d-block' ) );
-    ?>
-    
-    <div class="media-container">
-      <a href="<?php echo $link; ?>" <?php echo $external_url; ?>>
-        <?php echo $image_tag; ?>
-      </a>
-    </div>
-    
-  </div>
+	<div class="col">
+
+		<?php
+		$image_tag = wp_get_attachment_image( $image['ID'], 'full-size', false, array( 'class' => 'img-fluid mx-auto d-block' ) );
+		?>
+
+		<div class="media-container">
+			<a href="<?php echo $link; ?>" <?php echo $external_url; ?>>
+				<?php echo $image_tag; ?>
+			</a>
+		</div>
+
+	</div>
 
 <?php apl_close_layer(); ?>
