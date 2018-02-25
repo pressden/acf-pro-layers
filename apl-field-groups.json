@@ -43,127 +43,6 @@
                                 "maxlength": ""
                             },
                             {
-                                "key": "field_5a68db3d475ea",
-                                "label": "Customize",
-                                "name": "customize",
-                                "type": "true_false",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "message": "",
-                                "default_value": 0,
-                                "ui": 1,
-                                "ui_on_text": "",
-                                "ui_off_text": ""
-                            },
-                            {
-                                "key": "field_5a92bb3dfde28",
-                                "label": "Container",
-                                "name": "container",
-                                "type": "select",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": [
-                                    [
-                                        {
-                                            "field": "field_5a68db3d475ea",
-                                            "operator": "==",
-                                            "value": "1"
-                                        }
-                                    ]
-                                ],
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "choices": {
-                                    "fixed": "Fixed",
-                                    "fluid": "Fluid"
-                                },
-                                "default_value": [
-                                    "fixed"
-                                ],
-                                "allow_null": 0,
-                                "multiple": 0,
-                                "ui": 0,
-                                "ajax": 0,
-                                "return_format": "value",
-                                "placeholder": ""
-                            },
-                            {
-                                "key": "field_5a68db11475e7",
-                                "label": "Attributes",
-                                "name": "attributes",
-                                "type": "repeater",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": [
-                                    [
-                                        {
-                                            "field": "field_5a68db3d475ea",
-                                            "operator": "==",
-                                            "value": "1"
-                                        }
-                                    ]
-                                ],
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "collapsed": "",
-                                "min": 0,
-                                "max": 0,
-                                "layout": "table",
-                                "button_label": "",
-                                "sub_fields": [
-                                    {
-                                        "key": "field_5a68db27475e8",
-                                        "label": "Attribute",
-                                        "name": "attribute",
-                                        "type": "text",
-                                        "instructions": "",
-                                        "required": 1,
-                                        "conditional_logic": 0,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "default_value": "",
-                                        "placeholder": "",
-                                        "prepend": "",
-                                        "append": "",
-                                        "maxlength": ""
-                                    },
-                                    {
-                                        "key": "field_5a68db34475e9",
-                                        "label": "Value",
-                                        "name": "value",
-                                        "type": "text",
-                                        "instructions": "",
-                                        "required": 0,
-                                        "conditional_logic": 0,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "default_value": "",
-                                        "placeholder": "",
-                                        "prepend": "",
-                                        "append": "",
-                                        "maxlength": ""
-                                    }
-                                ]
-                            },
-                            {
                                 "key": "field_5911f1e10b6dc",
                                 "label": "CSS Classes",
                                 "name": "css_classes",
@@ -337,11 +216,11 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "fixed": "Fixed",
-                                    "fluid": "Fluid"
+                                    "container": "Fixed",
+                                    "container-fluid": "Fluid"
                                 },
                                 "default_value": [
-                                    "fixed"
+                                    "container"
                                 ],
                                 "allow_null": 0,
                                 "multiple": 0,
@@ -752,11 +631,11 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "fixed": "Fixed",
-                                    "fluid": "Fluid"
+                                    "container": "Fixed",
+                                    "container-fluid": "Fluid"
                                 },
                                 "default_value": [
-                                    "fixed"
+                                    "container"
                                 ],
                                 "allow_null": 0,
                                 "multiple": 0,
@@ -1018,11 +897,11 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "fixed": "Fixed",
-                                    "fluid": "Fluid"
+                                    "container": "Fixed",
+                                    "container-fluid": "Fluid"
                                 },
                                 "default_value": [
-                                    "fixed"
+                                    "container"
                                 ],
                                 "allow_null": 0,
                                 "multiple": 0,
@@ -1157,7 +1036,7 @@
                                 "name": "link",
                                 "type": "url",
                                 "instructions": "",
-                                "required": 1,
+                                "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
                                     "width": "",
@@ -1227,11 +1106,11 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "fixed": "Fixed",
-                                    "fluid": "Fluid"
+                                    "container": "Fixed",
+                                    "container-fluid": "Fluid"
                                 },
                                 "default_value": [
-                                    "fixed"
+                                    "container"
                                 ],
                                 "allow_null": 0,
                                 "multiple": 0,
@@ -1826,11 +1705,11 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "fixed": "Fixed",
-                                    "fluid": "Fluid"
+                                    "container": "Fixed",
+                                    "container-fluid": "Fluid"
                                 },
                                 "default_value": [
-                                    "fixed"
+                                    "container"
                                 ],
                                 "allow_null": 0,
                                 "multiple": 0,
@@ -1995,11 +1874,11 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "fixed": "Fixed",
-                                    "fluid": "Fluid"
+                                    "container": "Fixed",
+                                    "container-fluid": "Fluid"
                                 },
                                 "default_value": [
-                                    "fixed"
+                                    "container"
                                 ],
                                 "allow_null": 0,
                                 "multiple": 0,
