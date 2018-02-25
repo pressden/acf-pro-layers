@@ -60,18 +60,18 @@ function apl_content_layers_filter( $content ) {
 }
 
 // BEGIN Layer markup helpers
-function apl_get_open_layer( $layer_name, $layer_id, $css_classes = null, $attributes = null ) {
+function apl_get_open_layer( $layer_name, $layer_id, $css_classes = null, $attributes = null, $container = 'container' ) {
 	$output = '
 		<section id="' . $layer_id . '" class="' . $layer_name . '-wrap layer-wrap ' . $css_classes . '" ' . get_attributes($attributes) . '>
-			<div class="container ' . $layer_name . '-container">
+			<div class="' . $container . ' ' . $layer_name . '-container">
 				<div class="' . $layer_name . '-layer layer row">
 	';
 
 	return $output;
 }
 
-function apl_open_layer( $layer_name, $layer_id, $css_classes = null, $attributes = null ) {
-	echo apl_get_open_layer( $layer_name, $layer_id, $css_classes, $attributes );
+function apl_open_layer( $layer_name, $layer_id, $css_classes = null, $attributes = null, $container = 'container' ) {
+	echo apl_get_open_layer( $layer_name, $layer_id, $css_classes, $attributes, $container );
 }
 
 function apl_get_close_layer() {

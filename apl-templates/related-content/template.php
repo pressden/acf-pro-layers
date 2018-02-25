@@ -14,9 +14,10 @@ $show_excerpts = $layer['show_excerpts'];
 $show_buttons = $layer['show_buttons'];
 $button_text = $layer['button_text'];
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
+$container = ( isset( $layer['container'] ) ) ? $layer['container'] : 'container';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
-apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes );
+apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
 
 switch( $layout ) {
 	case 'carousel':

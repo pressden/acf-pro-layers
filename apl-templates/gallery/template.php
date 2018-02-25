@@ -14,6 +14,7 @@ $link_to = $layer['link_to'];
 $image_classes = ( isset( $layer['image_classes'] ) ) ? $layer['image_classes'] : null;
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
 $css_classes.= ' gallery gallery-columns-' . $columns;
+$container = ( isset( $layer['container'] ) ) ? $layer['container'] : 'container';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 // default media container
 $media_container = 'a';
@@ -21,7 +22,7 @@ $media_container = 'a';
 // default media classes
 $media_classes = null;
 
-apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes );
+apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
 
 switch( $layout ) {
 	case 'carousel':
