@@ -734,6 +734,253 @@
                         "min": "",
                         "max": ""
                     },
+                    "5a92caee65ef4": {
+                        "key": "5a92caee65ef4",
+                        "name": "grid",
+                        "label": "Grid",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_5a92cafd65ef5",
+                                "label": "Items",
+                                "name": "items",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "",
+                                "min": 0,
+                                "max": 0,
+                                "layout": "block",
+                                "button_label": "",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5a92cc9365ef6",
+                                        "label": "Content",
+                                        "name": "content",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1,
+                                        "delay": 0
+                                    },
+                                    {
+                                        "key": "field_5a92cccf65ef7",
+                                        "label": "Item Classes",
+                                        "name": "item_classes",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_5a92d012dca81",
+                                "label": "Customize",
+                                "name": "customize",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 1,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_5a9466faa9467",
+                                "label": "Breakpoint",
+                                "name": "breakpoint",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a92d012dca81",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "xs": "X-Small",
+                                    "sm": "Small",
+                                    "md": "Medium",
+                                    "lg": "Large",
+                                    "xl": "X-Large"
+                                },
+                                "default_value": [
+                                    "md"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5a92d030dca82",
+                                "label": "Container",
+                                "name": "container",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a92d012dca81",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "container": "Fixed",
+                                    "container-fluid": "Fluid"
+                                },
+                                "default_value": [
+                                    "container"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5a92d066dca83",
+                                "label": "Attributes",
+                                "name": "attributes",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a92d012dca81",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "",
+                                "min": 0,
+                                "max": 0,
+                                "layout": "table",
+                                "button_label": "",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5a92d09ddca84",
+                                        "label": "Attribute",
+                                        "name": "attribute",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
+                                        "key": "field_5a92d0f7dca85",
+                                        "label": "Value",
+                                        "name": "value",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_5a92ccf765ef8",
+                                "label": "CSS Classes",
+                                "name": "css_classes",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
                     "58e7b40155b7d": {
                         "key": "58e7b40155b7d",
                         "name": "headline",
