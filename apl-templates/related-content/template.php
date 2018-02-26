@@ -31,5 +31,5 @@ switch( $layout ) {
 		include( 'layout/grid.php' );
 	break;
 }
-            
+
 apl_close_layer();
