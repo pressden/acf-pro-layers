@@ -7,7 +7,7 @@ Template Name: APL Snippet
 $code = $layer['code'];
 $include_wrapper = ( isset( $layer['include_wrapper'] ) ) ? $layer['include_wrapper'] : null;
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
-$container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ? $layer['container'] : 'container';
+$container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
 if( $include_wrapper ) {

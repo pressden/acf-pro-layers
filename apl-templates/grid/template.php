@@ -8,7 +8,7 @@ $items = $layer['items'];
 $columns = count( $items );
 $breakpoint = ( isset( $layer['breakpoint'] ) && !is_array( $layer['breakpoint'] ) ) ? $layer['breakpoint'] : 'md';
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
-$container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ? $layer['container'] : 'container';
+$container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
 apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );

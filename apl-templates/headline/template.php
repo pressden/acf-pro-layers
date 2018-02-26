@@ -9,7 +9,7 @@ $title_tag = ( isset( $layer['title_tag'] ) && !is_array( $layer['title_tag'] ) 
 $dek = $layer['dek'];
 $dek_tag = ( isset( $layer['dek_tag'] ) && !is_array( $layer['dek_tag'] ) ) ? $layer['dek_tag'] : 'h2';
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
-$container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ? $layer['container'] : 'container';
+$container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 ?>
 
