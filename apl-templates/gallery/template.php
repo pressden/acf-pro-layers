@@ -14,7 +14,7 @@ $link_to = $layer['link_to'];
 $image_classes = ( isset( $layer['image_classes'] ) ) ? $layer['image_classes'] : null;
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
 $css_classes.= ' gallery gallery-columns-' . $columns;
-$container = ( isset( $layer['container'] ) ) ? $layer['container'] : 'container';
+$container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ? $layer['container'] : 'container';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 // default media container
 $media_container = 'a';
