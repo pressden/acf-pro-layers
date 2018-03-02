@@ -254,7 +254,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "table",
-                                "button_label": "",
+                                "button_label": "Add Attribute",
                                 "sub_fields": [
                                     {
                                         "key": "field_5a67d138f23d4",
@@ -298,6 +298,294 @@
                             },
                             {
                                 "key": "field_58f8933cfbe91",
+                                "label": "CSS Classes",
+                                "name": "css_classes",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "5a9577bd3c276": {
+                        "key": "5a9577bd3c276",
+                        "name": "directory",
+                        "label": "Directory",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5a95785c3c277",
+                                "label": "Members",
+                                "name": "members",
+                                "type": "post_object",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "post_type": [
+                                    "member"
+                                ],
+                                "taxonomy": [],
+                                "allow_null": 0,
+                                "multiple": 1,
+                                "return_format": "object",
+                                "ui": 1
+                            },
+                            {
+                                "key": "field_5a9579073c278",
+                                "label": "Columns",
+                                "name": "columns",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "1": "1",
+                                    "2": "2",
+                                    "3": "3",
+                                    "4": "4",
+                                    "6": "6"
+                                },
+                                "default_value": [
+                                    3
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5a9579533c279",
+                                "label": "Customize",
+                                "name": "customize",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 1,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_5a9579743c27a",
+                                "label": "Display",
+                                "name": "display",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a9579533c279",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "address": "Address",
+                                    "bio": "Bio",
+                                    "email": "Email",
+                                    "fax": "Fax",
+                                    "image": "Image",
+                                    "name": "Name",
+                                    "phone": "Phone",
+                                    "social": "Social",
+                                    "title": "Title",
+                                    "website": "Website"
+                                },
+                                "default_value": [
+                                    "image",
+                                    "name",
+                                    "title",
+                                    "bio"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 1,
+                                "ui": 1,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5a957e9b91ab7",
+                                "label": "Bio Length",
+                                "name": "bio_length",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a9579533c279",
+                                            "operator": "==",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "field": "field_5a9579743c27a",
+                                            "operator": "==",
+                                            "value": "bio"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "excerpt": "Short Bio",
+                                    "content": "Full Bio"
+                                },
+                                "default_value": [
+                                    "content"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5a957b213c27b",
+                                "label": "Container",
+                                "name": "container",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a9579533c279",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "container": "Fixed",
+                                    "container-fluid": "Fluid"
+                                },
+                                "default_value": [
+                                    "container"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5a957b803c27c",
+                                "label": "Attributes",
+                                "name": "attributes",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a9579533c279",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "",
+                                "min": 0,
+                                "max": 0,
+                                "layout": "table",
+                                "button_label": "Add Attribute",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5a957bdd3c27d",
+                                        "label": "Attribute",
+                                        "name": "attribute",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
+                                        "key": "field_5a957bf43c27e",
+                                        "label": "Value",
+                                        "name": "value",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_5a957c1c3c27f",
                                 "label": "CSS Classes",
                                 "name": "css_classes",
                                 "type": "text",
@@ -669,7 +957,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "table",
-                                "button_label": "",
+                                "button_label": "Add Attribute",
                                 "sub_fields": [
                                     {
                                         "key": "field_5a67d2d3bd630",
@@ -757,7 +1045,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "block",
-                                "button_label": "",
+                                "button_label": "Add Item",
                                 "sub_fields": [
                                     {
                                         "key": "field_5a92cc9365ef6",
@@ -916,7 +1204,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "table",
-                                "button_label": "",
+                                "button_label": "Add Attribute",
                                 "sub_fields": [
                                     {
                                         "key": "field_5a92d09ddca84",
@@ -1182,7 +1470,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "table",
-                                "button_label": "",
+                                "button_label": "Add Attribute",
                                 "sub_fields": [
                                     {
                                         "key": "field_5a67cf2ce2069",
@@ -1391,7 +1679,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "table",
-                                "button_label": "",
+                                "button_label": "Add Attribute",
                                 "sub_fields": [
                                     {
                                         "key": "field_5a67d286bd62d",
@@ -1556,7 +1844,7 @@
                                         "key": "field_58f891254a449",
                                         "label": "Excerpt",
                                         "name": "excerpt",
-                                        "type": "text",
+                                        "type": "wysiwyg",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": [
@@ -1579,10 +1867,10 @@
                                             "id": ""
                                         },
                                         "default_value": "",
-                                        "placeholder": "",
-                                        "prepend": "",
-                                        "append": "",
-                                        "maxlength": ""
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1,
+                                        "delay": 0
                                     },
                                     {
                                         "key": "field_58f891554a44a",
@@ -1625,6 +1913,38 @@
                                         "key": "field_58f891a94a44b",
                                         "label": "Button Text",
                                         "name": "button_text",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": [
+                                            [
+                                                {
+                                                    "field": "field_58f89531f17bb",
+                                                    "operator": "==",
+                                                    "value": "1"
+                                                },
+                                                {
+                                                    "field": "field_58f896572e16b",
+                                                    "operator": "==",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        ],
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
+                                        "key": "field_5a980e1a68217",
+                                        "label": "Button Classes",
+                                        "name": "button_classes",
                                         "type": "text",
                                         "instructions": "",
                                         "required": 0,
@@ -1909,6 +2229,33 @@
                                 "name": "button_text",
                                 "type": "text",
                                 "instructions": "",
+                                "required": 1,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_58f89531f17bb",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "Read more",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_5a980dc6d09ad",
+                                "label": "Button Classes",
+                                "name": "button_classes",
+                                "type": "text",
+                                "instructions": "",
                                 "required": 0,
                                 "conditional_logic": [
                                     [
@@ -1990,7 +2337,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "table",
-                                "button_label": "",
+                                "button_label": "Add Attribute",
                                 "sub_fields": [
                                     {
                                         "key": "field_5a67d256bd62a",
@@ -2159,7 +2506,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "table",
-                                "button_label": "",
+                                "button_label": "Add Attribute",
                                 "sub_fields": [
                                     {
                                         "key": "field_5a68dc06475ed",
@@ -2290,7 +2637,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "table",
-                                "button_label": "",
+                                "button_label": "Add Attribute",
                                 "sub_fields": [
                                     {
                                         "key": "field_5a68dc4a475f1",
