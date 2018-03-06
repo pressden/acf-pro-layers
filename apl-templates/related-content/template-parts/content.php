@@ -31,9 +31,10 @@ $related_post_excerpt = ( $related['excerpt'] ) ? apply_filters( 'the_excerpt', 
 $related_post_image = ( $related['image'] ) ? wp_get_attachment_image( $related['image']['ID'], 'post_thumbnail', false, array( 'class' => 'img-fluid mx-auto d-block' ) ) : $related_post_image;
 $related_post_button_text = ( $related['button_text'] ) ? $related['button_text'] : $button_text;
 $related_post_button_classes = ( $related['button_classes'] ) ? $related['button_class'] : $button_classes;
-if( $related['external_url'] ) {
-	$related_post_url = $related['external_url'];
-	$related_post_external_url = true;
+if( $related['link'] ) {
+	$related_post_link = $related['link'];
+	$related_post_url = $related_post_link['url'];
+	$related_post_target = $related_post_link['target'];
 }
 $related_css_classes = $related['css_classes'];
 
@@ -58,7 +59,7 @@ switch( $layout ) {
 $related_classes.= ' ' . $related_css_classes;
 
 $related_post_href = ( $related_post_url ) ? 'href="' . $related_post_url . '"' : null;
-$related_post_target = ( $related_post_external_url ) ? 'target="_blank"' : null;
+$related_post_target = ( $related_post_target == '_blank' ) ? 'target="' . $related_post_target . '"' : null;
 $related_post_anchor_open = ( $related_post_href ) ? '<a ' . $related_post_href . ' ' . $related_post_target . '>' : '';
 $related_post_anchor_close = ( $related_post_href ) ? '</a>' : '';
 $related_post_button_open = ( $related_post_href ) ? '<a ' . $related_post_href . ' class="' . $related_post_button_classes . '" ' . $related_post_target . '>' : '';
