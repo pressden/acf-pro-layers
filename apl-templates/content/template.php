@@ -4,8 +4,6 @@ Template Name: APL Content
 */
 
 // layer fields
-$headline = $layer['headline'];
-$headline_tag = ( isset( $layer['headline_tag'] ) && !is_array( $layer['headline_tag'] ) ) ? $layer['headline_tag'] : 'h3';
 $wordpress_content = ( isset( $layer['wordpress_content'] ) ) ? $layer['wordpress_content'] : null;
 $content = ( $wordpress_content ) ? $layer['wp_content'] : $layer['content'];
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
@@ -17,13 +15,7 @@ $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
 	<div class="col">
 
-		<?php
-		if( $headline ) {
-			echo '<' . $headline_tag . ' class="content-headline">' . $headline . '</' . $headline_tag . '>';
-		}
-
-		echo $content;
-		?>
+		<?php echo $content; ?>
 
 	</div>
 
