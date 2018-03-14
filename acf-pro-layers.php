@@ -12,6 +12,11 @@ Text Domain: acf_pro_layers
 
 add_filter( 'the_content', 'apl_content_layers_filter' );
 function apl_content_layers_filter( $content ) {
+	// only hook the_content on singular posts and main query
+	if( !is_singular() || !is_main_query() ) {
+		return $content;
+	}
+	
 	// get the layers field from ACF
 	$layers = get_field_object( 'content_layers' );
 
