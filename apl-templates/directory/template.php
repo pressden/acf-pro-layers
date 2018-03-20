@@ -41,7 +41,7 @@ foreach( $contacts as $contact ) {
 		if( count( $display ) ) {
 			?>
 
-			<div class="directory-details">
+			<div class="directory-details mb-5">
 
 				<?php
 				foreach( $display as $part ) {
