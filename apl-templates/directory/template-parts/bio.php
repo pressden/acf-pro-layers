@@ -1,7 +1,7 @@
 <?php if( $bio ): ?>
 
 	<div class="directory-bio">
-		<?php echo $bio; ?>
+		<?php echo wpautop( $bio ); ?>
 	</div>
 
 <?php endif; ?>
