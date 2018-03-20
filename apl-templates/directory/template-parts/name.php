@@ -3,7 +3,7 @@
 	<div class="directory-name">
 
 		<?php if( $link ): ?>
-			<a href="<?php echo $link; ?>">
+			<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>">
 		<?php endif; ?>
 
 			<?php echo $name; ?>

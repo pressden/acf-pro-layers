@@ -7,8 +7,9 @@ Template Name: APL Directory
 $contacts = $layer['contacts'];
 $columns = $layer['columns'];
 $column_size = 12 / $columns;
-$display = $layer['display'];
 $show_images = $layer['show_images'];
+$link_to = ( isset( $layer['link_to'] ) && !is_array( $layer['link_to'] ) ) ? $layer['link_to'] : 'post';
+$display = $layer['display'];
 $bio_length = ( isset( $layer['bio_length'] ) && !is_array( $layer['bio_length'] ) ) ? $layer['bio_length'] : 'content';
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
 $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
@@ -17,7 +18,6 @@ $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
 
 foreach( $contacts as $contact ) {
-	$link = get_the_permalink( $contact->ID );
 	$image = ( $show_images ) ? get_the_post_thumbnail( $contact->ID, 'post_thumbnail', array( 'class' => 'img-fluid mx-auto d-block' ) ) : null;
 	$name = get_field( 'name', $contact->ID );
 	$title = get_field( 'title', $contact->ID );
@@ -29,6 +29,26 @@ foreach( $contacts as $contact ) {
 	$website = get_field( 'website', $contact->ID );
 	$bio = ( $bio_length == 'excerpt' && has_excerpt( $contact->ID ) ) ? get_the_excerpt( $contact->ID ) : $contact->post_content;
 	$social = ( is_array( get_field( 'social', $contact->ID ) ) ) ? get_field( 'social', $contact->ID ) : null;
+
+	switch( $link_to ) {
+		// link to the post
+		case 'post':
+		$link = array(
+			'url' => get_the_permalink( $contact->ID ),
+			'target' => null,
+		);
+		break;
+
+		// link to the website if a URL is provided
+		case 'website':
+		$link = ( $website ) ? $website : 'null';
+		break;
+
+		// suppress links
+		default:
+		$link = null;
+		break;
+	}
 	?>
 
 	<div class="directory-contact col-sm-<?php echo $column_size; ?>">
