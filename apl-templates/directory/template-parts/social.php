@@ -1,4 +1,4 @@
-<?php if( count( $social ) ): ?>
+<?php if( $social ): ?>
 
 	<div class="simple-social-icons">
 		<ul class="directory-social">
