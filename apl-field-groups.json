@@ -648,6 +648,61 @@
                                 "ui_off_text": ""
                             },
                             {
+                                "key": "field_5aabb8028349a",
+                                "label": "Show Images",
+                                "name": "show_images",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a9579533c279",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 1,
+                                "ui": 1,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_5ab13960003f3",
+                                "label": "Link To",
+                                "name": "link_to",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "post": "Profile Page",
+                                    "website": "Website",
+                                    "none": "No Links"
+                                },
+                                "default_value": [
+                                    "post"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
                                 "key": "field_5a9579743c27a",
                                 "label": "Display",
                                 "name": "display",
@@ -852,25 +907,6 @@
                                 "prepend": "",
                                 "append": "",
                                 "maxlength": ""
-                            },
-                            {
-                                "key": "field_5aabb8028349a",
-                                "label": "Show Images",
-                                "name": "show_images",
-                                "type": "true_false",
-                                "instructions": "",
-                                "required": 1,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "message": "",
-                                "default_value": 1,
-                                "ui": 1,
-                                "ui_on_text": "",
-                                "ui_off_text": ""
                             }
                         ],
                         "min": "",
