@@ -5,6 +5,9 @@
 		<a href="tel:<?php echo $phone; ?>">
 			<?php echo $phone; ?>
 		</a>
+
+		<?php echo ( $extension ) ? 'x' . $extension : ''; ?>
+
 	</div>
 
 <?php endif; ?>

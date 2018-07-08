@@ -24,6 +24,7 @@ foreach( $contacts as $contact ) {
 	$company = get_field( 'company', $contact->ID );
 	$email = get_field( 'email', $contact->ID );
 	$phone = get_field( 'phone', $contact->ID );
+	$extension = get_field( 'extension', $contact->ID );
 	$fax = get_field( 'fax', $contact->ID );
 	$address = get_field( 'address', $contact->ID );
 	$website = get_field( 'website', $contact->ID );
