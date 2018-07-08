@@ -98,6 +98,25 @@
                 "maxlength": ""
             },
             {
+                "key": "field_5b33d9df4786d",
+                "label": "Extension",
+                "name": "extension",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
                 "key": "field_5aa921562acdc",
                 "label": "Fax",
                 "name": "fax",
@@ -653,7 +672,7 @@
                                 "name": "show_images",
                                 "type": "true_false",
                                 "instructions": "",
-                                "required": 1,
+                                "required": 0,
                                 "conditional_logic": [
                                     [
                                         {
