@@ -2055,13 +2055,48 @@
                         "display": "row",
                         "sub_fields": [
                             {
+                                "key": "field_5b464b1d36883",
+                                "label": "Selection Method",
+                                "name": "selection_method",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "manual": "Manual",
+                                    "query": "Query"
+                                },
+                                "default_value": [
+                                    "manual"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
                                 "key": "field_58f88f6e4a441",
                                 "label": "Posts",
                                 "name": "posts",
                                 "type": "repeater",
                                 "instructions": "",
-                                "required": 1,
-                                "conditional_logic": 0,
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5b464b1d36883",
+                                            "operator": "==",
+                                            "value": "manual"
+                                        }
+                                    ]
+                                ],
                                 "wrapper": {
                                     "width": "",
                                     "class": "",
@@ -2316,6 +2351,235 @@
                                                 }
                                             ]
                                         ],
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_5b464c6d95c60",
+                                "label": "Query Settings",
+                                "name": "query_settings",
+                                "type": "group",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5b464b1d36883",
+                                            "operator": "==",
+                                            "value": "query"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "row",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5b47832abaaa3",
+                                        "label": "Post Type",
+                                        "name": "post_type",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "post",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
+                                        "key": "field_5b477c4701d14",
+                                        "label": "Result Limit",
+                                        "name": "result_limit",
+                                        "type": "number",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": 3,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "min": "",
+                                        "max": "",
+                                        "step": ""
+                                    },
+                                    {
+                                        "key": "field_5b478816eb9e3",
+                                        "label": "Require Images",
+                                        "name": "require_images",
+                                        "type": "true_false",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": [
+                                            [
+                                                {
+                                                    "field": "field_58f8951af17ba",
+                                                    "operator": "==",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        ],
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "message": "",
+                                        "default_value": 0,
+                                        "ui": 0,
+                                        "ui_on_text": "",
+                                        "ui_off_text": ""
+                                    },
+                                    {
+                                        "key": "field_5b478f32d95b6",
+                                        "label": "Taxonomies",
+                                        "name": "taxonomies",
+                                        "type": "repeater",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "collapsed": "",
+                                        "min": 0,
+                                        "max": 0,
+                                        "layout": "row",
+                                        "button_label": "",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_5b478fa1d95b7",
+                                                "label": "Taxonomy",
+                                                "name": "taxonomy",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 1,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "maxlength": ""
+                                            },
+                                            {
+                                                "key": "field_5b478fd1d95b8",
+                                                "label": "Terms",
+                                                "name": "terms",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 1,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "maxlength": ""
+                                            },
+                                            {
+                                                "key": "field_5b478fe2d95b9",
+                                                "label": "Operator",
+                                                "name": "operator",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 1,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "AND": "AND",
+                                                    "EXISTS": "EXISTS",
+                                                    "IN": "IN",
+                                                    "NOT EXISTS": "NOT EXISTS",
+                                                    "NOT IN": "NOT IN"
+                                                },
+                                                "default_value": [
+                                                    "IN"
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_5b479290a6387",
+                                                "label": "Field",
+                                                "name": "field",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 1,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "name": "name",
+                                                    "slug": "slug",
+                                                    "term_id": "term_id",
+                                                    "term_taxonomy_id": "term_taxonomy_id"
+                                                },
+                                                "default_value": [
+                                                    "term_id"
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "key": "field_5b477d5b01d15",
+                                        "label": "Preset",
+                                        "name": "preset",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -2653,8 +2917,8 @@
                             },
                             {
                                 "key": "field_5b42767d88800",
-                                "label": "Random Sets",
-                                "name": "random_sets",
+                                "label": "Limit",
+                                "name": "limit",
                                 "type": "number",
                                 "instructions": "",
                                 "required": 1,
