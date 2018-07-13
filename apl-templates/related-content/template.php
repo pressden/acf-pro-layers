@@ -4,7 +4,7 @@ Template Name: APL Related Content
 */
 
 // layer fields
-$selection_method = $layer['selection_method'];
+$selection_method = ( isset( $layer['selection_method'] ) ) ? $layer['selection_method'] : 'manual';
 $layout = ( isset( $layer['layout'] ) ) ? $layer['layout'] : 'grid';
 $columns = ( isset( $layer['columns'] ) && !is_array( $layer['columns'] ) ) ? $layer['columns'] : 3;
 $columns = ( $layout == 'slider' ) ? 1 : $columns; // force sliders to one column
