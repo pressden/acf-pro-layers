@@ -21,7 +21,12 @@ $related_css_classes = null;
 // get initial values from the post object
 if( $related_post ) {
 	$related_post_title = $related_post->post_title;
-	$related_post_excerpt = apply_filters( 'the_excerpt', get_post_field( 'post_content', $related_post->ID ) );
+	
+	// @TODO: check for a better way to get the excerpt or an exerpt of the content ( i.e. get_the_excerpt() vs. apply_filters() )
+	// get the excerpt or get an excerpt of the content
+	$excerpt_or_content = ( has_excerpt( $related_post->ID ) ) ? 'post_excerpt' : 'post_content';
+	$related_post_excerpt = apply_filters( 'the_excerpt', get_post_field( $excerpt_or_content, $related_post->ID ) );
+	
 	$related_post_image = get_the_post_thumbnail( $related_post->ID, 'post_thumbnail', array( 'class' => 'img-fluid mx-auto d-block' ) );
 	$related_post_url = get_the_permalink( $related_post );
 }
