@@ -33,6 +33,7 @@ if( $related_post ) {
 
 $related_post_title = ( $related['title'] ) ? $related['title'] : $related_post_title;
 $related_post_excerpt = ( $related['excerpt'] ) ? apply_filters( 'the_excerpt', $related['excerpt'] ) : $related_post_excerpt;
+// @TODO: explore options for lazy loading images (especially slider images) - e.g. https://coderwall.com/p/6qaeya/lazy-carousel-in-bootstrap
 $related_post_image = ( $related['image'] ) ? wp_get_attachment_image( $related['image']['ID'], 'post_thumbnail', false, array( 'class' => 'img-fluid mx-auto d-block' ) ) : $related_post_image;
 $related_post_button_text = ( $related['button_text'] ) ? $related['button_text'] : $button_text;
 $related_post_button_classes = ( $related['button_classes'] ) ? $related['button_class'] : $button_classes;
