@@ -4,7 +4,7 @@ Template Name: APL Related Content
 */
 
 // layer fields
-$selection_method = ( isset( $layer['selection_method'] ) ) ? $layer['selection_method'] : 'manual';
+$selection_method = ( isset( $layer['selection_method'] ) && !is_array( $layer['selection_method'] ) ) ? $layer['selection_method'] : 'manual';
 $layout = ( isset( $layer['layout'] ) ) ? $layer['layout'] : 'grid';
 $columns = ( isset( $layer['columns'] ) && !is_array( $layer['columns'] ) ) ? $layer['columns'] : 3;
 $columns = ( $layout == 'slider' ) ? 1 : $columns; // force sliders to one column
@@ -104,9 +104,10 @@ switch( $selection_method ) {
 
 	// if the query has posts
 	if( $query->have_posts() ) {
-		// output query results in an ACF friendly format
+		// convert the query results into an ACF friendly format
 		$related_posts = array_map( function( $post ) { return array( 'post' => $post ); }, $query->posts );
 	}
+
 	break;
 }
 
@@ -116,6 +117,7 @@ switch( $layout ) {
 	case 'carousel':
 	case 'grid':
 	case 'slider':
+		// @TODO: Add a carousel template similar to the gallery layer carousel
 		include( 'layout/' . $layout . '.php' );
 	break;
 
