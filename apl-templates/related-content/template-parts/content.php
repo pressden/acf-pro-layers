@@ -10,6 +10,7 @@ $related_post_image = null;
 
 // the post excerpt
 $related_post_excerpt = null;
+$is_related_truncated = false;
 
 // the post URL
 $related_post_url = null;
@@ -22,17 +23,43 @@ $related_css_classes = null;
 if( $related_post ) {
 	$related_post_title = $related_post->post_title;
 	
-	// @TODO: check for a better way to get the excerpt or an exerpt of the content ( i.e. get_the_excerpt() vs. apply_filters() )
-	// get the excerpt or get an excerpt of the content
-	$excerpt_or_content = ( has_excerpt( $related_post->ID ) ) ? 'post_excerpt' : 'post_content';
-	$related_post_excerpt = apply_filters( 'the_excerpt', get_post_field( $excerpt_or_content, $related_post->ID ) );
-	
+	if( $show_excerpts ) {
+		// @TODO: check for a better way to get the excerpt or an exerpt of the content ( i.e. get_the_excerpt() vs. apply_filters() )
+
+		// if genesis is set to return excerpts on archive pages then get the excerpt
+		if( 'excerpts' === genesis_get_option( 'content_archive' ) ) {
+
+			// get the excerpt or get an excerpt of the content
+			if( has_excerpt( $related_post->ID ) ) {
+				$related_post_excerpt = get_post_field( 'post_excerpt', $related_post->ID );
+			}
+			elseif( genesis_get_option( 'content_archive_limit' ) ) {
+				$related_post_excerpt = get_post_field( 'post_content', $related_post->ID );
+
+				// strip tags and shortcodes so the content truncation count is done correctly
+				$related_post_excerpt = strip_tags( strip_shortcodes( $related_post_excerpt ), apply_filters( 'get_the_content_limit_allowedtags', '<script>,<style>' ) );
+
+				// remove inline styles / scripts
+				$related_post_excerpt = trim( preg_replace( '#<(s(cript|tyle)).*?</\1>#si', '', $related_post_excerpt ) );
+
+				// truncate content to the content archive limit
+				$related_post_excerpt = genesis_truncate_phrase( $related_post_excerpt, (int) genesis_get_option( 'content_archive_limit' ) );
+				$is_excerpt_truncated = true;
+			}
+		}
+
+		// if the excerpt is still empty get the content instead
+		if( !$related_post_excerpt ) {
+			$related_post_excerpt = get_post_field( 'post_content', $related_post->ID );
+		}
+	}
+
 	$related_post_image = get_the_post_thumbnail( $related_post->ID, 'post_thumbnail', array( 'class' => 'img-fluid mx-auto d-block' ) );
 	$related_post_url = get_the_permalink( $related_post );
 }
 
 $related_post_title = ( $related['title'] ) ? $related['title'] : $related_post_title;
-$related_post_excerpt = ( $related['excerpt'] ) ? apply_filters( 'the_excerpt', $related['excerpt'] ) : $related_post_excerpt;
+$related_post_excerpt = ( $related['excerpt'] ) ? $related['excerpt'] : $related_post_excerpt;
 // @TODO: explore options for lazy loading images (especially slider images) - e.g. https://coderwall.com/p/6qaeya/lazy-carousel-in-bootstrap
 $related_post_image = ( $related['image'] ) ? wp_get_attachment_image( $related['image']['ID'], 'post_thumbnail', false, array( 'class' => 'img-fluid mx-auto d-block' ) ) : $related_post_image;
 $related_post_button_text = ( $related['button_text'] ) ? $related['button_text'] : $button_text;
@@ -96,7 +123,14 @@ $related_post_button_close = ( $related_post_href ) ? '</a>' : '';
 
 		<?php if( $show_excerpts && $related_post_excerpt ): ?>
 			<div class="related-post-excerpt">
-				<?php echo $related_post_excerpt; ?>
+
+				<?php
+				// if the excerpt is truncated add ellipsis and an optional link to tidy it up a bit
+				$ellipsis_link = ( $is_excerpt_truncated ) ? ' ... ' . $related_post_anchor_open . $related_post_button_text . $related_post_anchor_close : '';
+
+				echo apply_filters( 'the_excerpt', $related_post_excerpt . $ellipsis_link );
+				?>
+
 			</div>
 		<?php endif; ?>
 
