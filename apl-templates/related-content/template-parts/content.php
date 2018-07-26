@@ -10,7 +10,7 @@ $related_post_image = null;
 
 // the post excerpt
 $related_post_excerpt = null;
-$is_related_truncated = false;
+$is_excerpt_truncated = false;
 
 // the post URL
 $related_post_url = null;
@@ -60,6 +60,7 @@ if( $related_post ) {
 
 $related_post_title = ( $related['title'] ) ? $related['title'] : $related_post_title;
 $related_post_excerpt = ( $related['excerpt'] ) ? $related['excerpt'] : $related_post_excerpt;
+$is_excerpt_truncated = ( $related['excerpt'] ) ? false : $is_excerpt_truncated; // manually entered excerpts are never truncated
 // @TODO: explore options for lazy loading images (especially slider images) - e.g. https://coderwall.com/p/6qaeya/lazy-carousel-in-bootstrap
 $related_post_image = ( $related['image'] ) ? wp_get_attachment_image( $related['image']['ID'], 'post_thumbnail', false, array( 'class' => 'img-fluid mx-auto d-block' ) ) : $related_post_image;
 $related_post_button_text = ( $related['button_text'] ) ? $related['button_text'] : $button_text;
@@ -125,8 +126,12 @@ $related_post_button_close = ( $related_post_href ) ? '</a>' : '';
 			<div class="related-post-excerpt">
 
 				<?php
-				// if the excerpt is truncated add ellipsis and an optional link to tidy it up a bit
-				$ellipsis_link = ( $is_excerpt_truncated ) ? ' ... ' . $related_post_anchor_open . $related_post_button_text . $related_post_anchor_close : '';
+				if( $is_excerpt_truncated ) {
+					// add ellipis
+					$ellipsis_link = ' ... ';
+					// add a read more link if buttons are turned off
+					$ellipsis_link.= ( !$show_buttons ) ? $related_post_anchor_open . $related_post_button_text . $related_post_anchor_close : '';
+				}
 
 				echo apply_filters( 'the_excerpt', $related_post_excerpt . $ellipsis_link );
 				?>
