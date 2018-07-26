@@ -22,7 +22,7 @@ $related_css_classes = null;
 // get initial values from the post object
 if( $related_post ) {
 	$related_post_title = $related_post->post_title;
-	
+
 	if( $show_excerpts ) {
 		// @TODO: check for a better way to get the excerpt or an exerpt of the content ( i.e. get_the_excerpt() vs. apply_filters() )
 
