@@ -13,7 +13,7 @@ Text Domain: acf_pro_layers
 add_filter( 'the_content', 'apl_content_layers_filter' );
 function apl_content_layers_filter( $content ) {
 	// only hook the content on the main query of pages and posts
-	if( !is_page() && !is_singular( 'post' ) || !is_main_query() ) {
+	if( !is_page() && !is_singular() || !is_main_query() ) {
 		return $content;
 	}
 	
