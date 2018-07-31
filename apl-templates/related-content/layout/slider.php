@@ -1,4 +1,4 @@
-<div id="<?php echo $apl_unique_id; ?>-slider" class="carousel slide w-100" data-ride="carousel">
+<div id="<?php echo $apl_unique_id; ?>-slider" class="carousel slide related-post w-100" data-ride="carousel">
 	<div class="carousel-inner">
 
 		<?php
