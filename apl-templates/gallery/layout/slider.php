@@ -7,7 +7,7 @@
 
 		<?php foreach( $images as $image_object ): ?>
 
-	    <div class="carousel-item w-100 <?php echo ( $count == 0 ) ? 'active' : ''; ?>">
+	    <div class="carousel-item media-container w-100 <?php echo ( $count == 0 ) ? 'active' : ''; ?>">
 
 	      <?php
 	      // full image tag

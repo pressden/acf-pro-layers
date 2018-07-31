@@ -17,7 +17,7 @@
 
 			<figure class="gallery-item">
 
-				<div class="gallery-icon">
+				<div class="gallery-icon media-container">
 					<?php
 					// full image tag
 					echo wp_get_attachment_image( $image_object['ID'], 'full-size', false, array( 'class' => 'd-block mx-auto' ) );
