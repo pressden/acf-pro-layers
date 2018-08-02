@@ -1,6 +1,6 @@
 <?php if( $show_images ): ?>
 
-	<div class="directory-image media-container mb-2">
+	<div class="directory-image media-container">
 
 		<?php if( $link ): ?>
 			<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>">
