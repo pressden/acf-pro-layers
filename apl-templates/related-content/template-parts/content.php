@@ -86,7 +86,7 @@ switch( $layout ) {
 
 	case 'grid':
 	default:
-		$related_classes.= ' col-sm-' . $column_size;
+		$related_classes.= ' col-lg-' . $column_size;
 	break;
 }
 
