@@ -52,7 +52,7 @@ foreach( $contacts as $contact ) {
 	}
 	?>
 
-	<div class="directory-contact col-sm-<?php echo $column_size; ?>">
+	<div class="directory-contact col-lg-<?php echo $column_size; ?>">
 
 		<?php
 		// show the image
