@@ -21,9 +21,17 @@ $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 		?>
 
 		<div class="media-container">
-			<a href="<?php echo $link; ?>" <?php echo $external_url; ?>>
-				<?php echo $image_tag; ?>
-			</a>
+
+			<?php if( $link ): ?>
+				<a href="<?php echo $link; ?>" <?php echo $external_url; ?>>
+			<?php endif; ?>
+
+			<?php echo $image_tag; ?>
+
+			<?php if( $link ): ?>
+				</a>
+			<?php endif; ?>
+
 		</div>
 
 	</div>
