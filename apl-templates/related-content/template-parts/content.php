@@ -8,6 +8,9 @@ $related_post_title = null;
 // the post image
 $related_post_image = null;
 
+// the post icon
+$related_post_icon = null;
+
 // the post excerpt
 $related_post_excerpt = null;
 $is_excerpt_truncated = false;
@@ -60,6 +63,7 @@ $related_post_excerpt = ( $related['excerpt'] ) ? $related['excerpt'] : $related
 $is_excerpt_truncated = ( $related['excerpt'] ) ? false : $is_excerpt_truncated; // manually entered excerpts are never truncated
 // @TODO: explore options for lazy loading images (especially slider images) - e.g. https://coderwall.com/p/6qaeya/lazy-carousel-in-bootstrap
 $related_post_image = ( $related['image'] ) ? wp_get_attachment_image( $related['image']['ID'], 'post_thumbnail', false, array( 'class' => 'img-fluid mx-auto d-block' ) ) : $related_post_image;
+$related_post_icon = ( $related['icon'] ) ? '<i class="material-icons">' . $related['icon'] . '</i>' : null;
 $related_post_button_text = ( $related['button_text'] ) ? $related['button_text'] : $button_text;
 $related_post_button_classes = ( $related['button_classes'] ) ? $related['button_class'] : $button_classes;
 if( $related['link'] ) {
@@ -99,10 +103,10 @@ $related_post_button_close = ( $related_post_href ) ? '</a>' : '';
 
 <div class="<?php echo $related_classes; ?>">
 
-	<?php if( $show_images && $related_post_image ): ?>
+	<?php if( $show_images && ( $related_post_image || $related_post_icon ) ): ?>
 		<div class="related-post-image media-container">
 			<?php echo $related_post_anchor_open; ?>
-			<?php echo $related_post_image; ?>
+			<?php echo ( $related_post_icon ) ? $related_post_icon : $related_post_image; ?>
 			<?php echo $related_post_anchor_close; ?>
 		</div>
 	<?php endif; ?>

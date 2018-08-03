@@ -336,7 +336,7 @@
                                 "maxlength": ""
                             },
                             {
-                                "key": "field_5b58b41c81590",
+                                "key": "field_5b595fd77bfa8",
                                 "label": "Label",
                                 "name": "label",
                                 "type": "text",
@@ -2229,6 +2229,33 @@
                                         "toolbar": "full",
                                         "media_upload": 1,
                                         "delay": 0
+                                    },
+                                    {
+                                        "key": "field_5b63626e2fcb6",
+                                        "label": "Icon",
+                                        "name": "icon",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": [
+                                            [
+                                                {
+                                                    "field": "field_58f8951af17ba",
+                                                    "operator": "==",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        ],
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
                                     },
                                     {
                                         "key": "field_58f891554a44a",
