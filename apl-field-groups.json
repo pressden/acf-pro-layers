@@ -3026,6 +3026,41 @@
                                 "placeholder": ""
                             },
                             {
+                                "key": "field_5b682b2e8bc60",
+                                "label": "Entry Wrap",
+                                "name": "entry_wrap",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a68dada475e5",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "a": "Anchor",
+                                    "div": "Div"
+                                },
+                                "default_value": [
+                                    "div"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
                                 "key": "field_5a67d23dbd629",
                                 "label": "Attributes",
                                 "name": "attributes",

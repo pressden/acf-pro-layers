@@ -95,62 +95,75 @@ $related_classes.= ' ' . $related_css_classes;
 
 $related_post_href = ( $related_post_url ) ? 'href="' . $related_post_url . '"' : null;
 $related_post_target = ( $related_post_target == '_blank' ) ? 'target="' . $related_post_target . '"' : null;
-$related_post_anchor_open = ( $related_post_href ) ? '<a ' . $related_post_href . ' ' . $related_post_target . '>' : '';
-$related_post_anchor_close = ( $related_post_href ) ? '</a>' : '';
-$related_post_button_open = ( $related_post_href ) ? '<a ' . $related_post_href . ' class="' . $related_post_button_classes . '" ' . $related_post_target . '>' : '';
-$related_post_button_close = ( $related_post_href ) ? '</a>' : '';
+$related_post_anchor_open = ( $related_post_href && $entry_wrap == 'div' ) ? '<a ' . $related_post_href . ' ' . $related_post_target . '>' : '';
+$related_post_anchor_close = ( $related_post_href && $entry_wrap == 'div' ) ? '</a>' : '';
+
+// if the entry is wrapped in a div our button can be an anchor with an href and target
+if( $entry_wrap == 'div' ) {
+	$related_post_button_open = ( $related_post_href ) ? '<a ' . $related_post_href . ' class="' . $related_post_button_classes . '" ' . $related_post_target . '>' : '';
+	$related_post_button_close = ( $related_post_href ) ? '</a>' : '';
+}
+// otherwise it is a standard button and should not have an href or target
+else {
+	$related_post_button_open = ( $related_post_href ) ? '<button class="' . $related_post_button_classes . '">' : '';
+	$related_post_button_close = ( $related_post_href ) ? '</button>' : '';
+}
 ?>
 
 <div class="<?php echo $related_classes; ?>">
 
-	<?php if( $show_images && ( $related_post_image || $related_post_icon ) ): ?>
-		<div class="related-post-image media-container">
-			<?php echo $related_post_anchor_open; ?>
-			<?php echo ( $related_post_icon ) ? $related_post_icon : $related_post_image; ?>
-			<?php echo $related_post_anchor_close; ?>
-		</div>
-	<?php endif; ?>
+	<<?php echo $entry_wrap; ?> <?php echo ( $entry_wrap == 'a' ) ? $related_post_href . ' ' . $related_post_target : ''; ?> class="related-post-wrap">
 
-	<?php if( $show_titles || $show_excerpts || $show_buttoms ): ?>
-		<div class="related-post-info">
-	<?php endif; ?>
-
-		<?php if( $show_titles ): ?>
-			<<?php echo $title_tag; ?> class="related-post-title">
+		<?php if( $show_images && ( $related_post_image || $related_post_icon ) ): ?>
+			<div class="related-post-image media-container">
 				<?php echo $related_post_anchor_open; ?>
-				<?php echo $related_post_title; ?>
+				<?php echo ( $related_post_icon ) ? $related_post_icon : $related_post_image; ?>
 				<?php echo $related_post_anchor_close; ?>
-			</<?php echo $title_tag; ?>>
-		<?php endif; ?>
-
-		<?php if( $show_excerpts && $related_post_excerpt ): ?>
-			<div class="related-post-excerpt">
-
-				<?php
-				if( $is_excerpt_truncated ) {
-					// add ellipis
-					$ellipsis_link = ' ... ';
-					// add a read more link if buttons are turned off
-					$ellipsis_link.= ( !$show_buttons ) ? $related_post_anchor_open . $related_post_button_text . $related_post_anchor_close : '';
-				}
-
-				echo apply_filters( 'the_excerpt', $related_post_excerpt . $ellipsis_link );
-				?>
-
 			</div>
 		<?php endif; ?>
 
-		<?php if( $show_buttons && $related_post_url ): ?>
-			<div class="related-post-button">
-				<?php echo $related_post_button_open; ?>
-				<?php echo $related_post_button_text; ?>
-				<?php echo $related_post_button_close; ?>
+		<?php if( $show_titles || $show_excerpts || $show_buttons ): ?>
+			<div class="related-post-info">
+		<?php endif; ?>
+
+			<?php if( $show_titles ): ?>
+				<<?php echo $title_tag; ?> class="related-post-title">
+					<?php echo $related_post_anchor_open; ?>
+					<?php echo $related_post_title; ?>
+					<?php echo $related_post_anchor_close; ?>
+				</<?php echo $title_tag; ?>>
+			<?php endif; ?>
+
+			<?php if( $show_excerpts && $related_post_excerpt ): ?>
+				<div class="related-post-excerpt">
+
+					<?php
+					if( $is_excerpt_truncated ) {
+						// add ellipis
+						$ellipsis_link = ' ... ';
+						// add a read more link if buttons are turned off
+						$ellipsis_link.= ( !$show_buttons ) ? $related_post_anchor_open . $related_post_button_text . $related_post_anchor_close : '';
+					}
+
+					echo apply_filters( 'the_excerpt', $related_post_excerpt . $ellipsis_link );
+					?>
+
+				</div>
+			<?php endif; ?>
+
+			<?php if( $show_buttons && $related_post_url ): ?>
+				<div class="related-post-button">
+					<?php echo $related_post_button_open; ?>
+					<?php echo $related_post_button_text; ?>
+					<?php echo $related_post_button_close; ?>
+				</div>
+			<?php endif; ?>
+
+		<?php if( $show_titles || $show_excerpts || $show_buttons ): ?>
 			</div>
 		<?php endif; ?>
 
-	<?php if( $show_titles || $show_excerpts || $show_buttoms ): ?>
-		</div>
-	<?php endif; ?>
+	</<?php echo $entry_wrap; ?>>
 
 </div>
 

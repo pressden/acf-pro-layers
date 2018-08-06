@@ -20,6 +20,7 @@ $randomize = $layer['randomize'];
 $limit = $layer['limit'];
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
 $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
+$entry_wrap = ( isset( $layer['entry_wrap'] ) && !is_array( $layer['entry_wrap'] ) ) ? $layer['entry_wrap'] : 'div';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 $count = 0; // count is required for some templates
 
