@@ -20,9 +20,6 @@ function apl_content_layers_filter( $content ) {
 	// get the layers field from ACF
 	$layers = get_field_object( 'content_layers' );
 
-	// initialize the output variable
-	$output = '';
-
 	// if there are no layers wrap the WordPress content in APL markup for consistency
 	if( !$layers || ( isset( $layers['value'] ) && !$layers['value'] ) ) {
 		$layers['value'] = array(
@@ -32,6 +29,16 @@ function apl_content_layers_filter( $content ) {
 			),
 		);
 	}
+
+	$output = apl_buffer_layers( $layers );
+
+	return $output;
+}
+
+// loop through all layers and return the buffered content
+function apl_buffer_layers( $layers ) {
+	// initialize the output variable
+	$output = '';
 
 	foreach( $layers['value'] as $key => $layer ) {
 		// layer_name

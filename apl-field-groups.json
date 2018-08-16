@@ -3150,6 +3150,38 @@
                         "min": "",
                         "max": ""
                     },
+                    "5b747a14ebc35": {
+                        "key": "5b747a14ebc35",
+                        "name": "related_layer",
+                        "label": "Related Layer",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_5b747a24ebc36",
+                                "label": "Layer Post",
+                                "name": "layer_post",
+                                "type": "post_object",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "post_type": [
+                                    "layer"
+                                ],
+                                "taxonomy": [],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "return_format": "object",
+                                "ui": 1
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
                     "59132a6dbcbb8": {
                         "key": "59132a6dbcbb8",
                         "name": "snippet",
@@ -3477,6 +3509,13 @@
                     "param": "post_type",
                     "operator": "==",
                     "value": "page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "layer"
                 }
             ]
         ],
