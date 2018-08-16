@@ -30,13 +30,13 @@ function apl_content_layers_filter( $content ) {
 		);
 	}
 
-	$output = apl_buffer_layers( $layers );
+	$output = apl_buffer_layers( $layers, $content );
 
 	return $output;
 }
 
 // loop through all layers and return the buffered content
-function apl_buffer_layers( $layers ) {
+function apl_buffer_layers( $layers, $content = null ) {
 	// initialize the output variable
 	$output = '';
 
