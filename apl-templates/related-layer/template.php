@@ -12,8 +12,8 @@ $include_wrapper = ( isset( $layer['include_wrapper'] ) ) ? $layer['include_wrap
 $layers = get_field_object( 'content_layers', $layer_post->ID );
 
 $args = array(
-	'include_wrapper' = $include_wrapper,
-	'include_column' = $include_wrapper,
+	'include_wrapper' => $include_wrapper,
+	'include_column' => $include_wrapper,
 );
 
 echo apl_buffer_layers( $layers, null, $args );
