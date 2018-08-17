@@ -112,7 +112,9 @@ switch( $selection_method ) {
 	break;
 }
 
-apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
+if( $args['include_wrapper'] ) {
+	apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
+}
 
 switch( $layout ) {
 	case 'carousel':
@@ -128,4 +130,6 @@ switch( $layout ) {
 	break;
 }
 
-apl_close_layer();
+if( $args['include_wrapper'] ) {
+	apl_close_layer();
+}

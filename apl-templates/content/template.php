@@ -11,12 +11,19 @@ $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) 
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 ?>
 
-<?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container ); ?>
+<?php
+if( $args['include_wrapper'] ) {
+	apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
+}
+?>
 
-	<div class="col">
+<div class="content-col <?php echo ( $args['include_column'] ) ? 'col' : ''; ?>">
 
-		<?php echo $content; ?>
+	<?php echo $content; ?>
 
-	</div>
+</div>
 
-<?php apl_close_layer(); ?>
+<?php
+if( $args['include_wrapper'] ) {
+	apl_close_layer();
+}

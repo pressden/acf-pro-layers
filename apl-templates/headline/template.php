@@ -13,24 +13,31 @@ $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) 
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 ?>
 
-<?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container ); ?>
+<?php
+if( $args['include_wrapper'] ) {
+	apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
+}
 
-	<?php if( $title || $dek ): ?>
+if( $title || $dek ) {
+	?>
 
-		<div class="col">
+	<div class="headline-col <?php echo ( $args['include_column'] ) ? 'col' : ''; ?>">
 
-			<?php
-			if( $title ) {
-				echo '<' . $title_tag . '>' . $title . '</' . $title_tag . '>';
-			}
+		<?php
+		if( $title ) {
+			echo '<' . $title_tag . '>' . $title . '</' . $title_tag . '>';
+		}
 
-			if( $dek ) {
-				echo '<' . $dek_tag . '>' . $dek . '</' . $dek_tag . '>';
-			}
-			?>
+		if( $dek ) {
+			echo '<' . $dek_tag . '>' . $dek . '</' . $dek_tag . '>';
+		}
+		?>
 
-		</div>
+	</div>
 
-	<?php endif; ?>
+	<?php
+}
 
-<?php apl_close_layer(); ?>
+if( $args['include_wrapper'] ) {
+	apl_close_layer();
+}

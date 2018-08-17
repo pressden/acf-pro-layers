@@ -36,7 +36,15 @@ function apl_content_layers_filter( $content ) {
 }
 
 // loop through all layers and return the buffered content
-function apl_buffer_layers( $layers, $content = null ) {
+function apl_buffer_layers( $layers, $content = null, $args = array() ) {
+	// define default args
+	$defaults = array(
+		'include_wrapper' => true,
+		'include_column' => true,
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
 	// initialize the output variable
 	$output = '';
 
@@ -65,7 +73,7 @@ function apl_buffer_layers( $layers, $content = null ) {
 		$template = apl_get_template( $layer_name );
 
 		// buffer the template content
-		$output .= apl_get_template_buffer( $template, $layer );
+		$output .= apl_get_template_buffer( $template, $layer, $args );
 	}
 
 	return $output;
@@ -155,7 +163,7 @@ function apl_get_template( $layer_name ) {
 	return $template;
 }
 
-function apl_get_template_buffer( $template, $layer ) {
+function apl_get_template_buffer( $template, $layer, $args = array() ) {
 	if( is_file( $template ) ) {
 		// define required template variables
 		$apl_unique_id = $layer['apl-unique-id'];

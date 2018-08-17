@@ -1391,13 +1391,48 @@
                                 "button_label": "Add Item",
                                 "sub_fields": [
                                     {
+                                        "key": "field_5b76b9f715fd8",
+                                        "label": "Item Type",
+                                        "name": "item_type",
+                                        "type": "select",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "choices": {
+                                            "content": "Content",
+                                            "layer_posts": "Layer Posts"
+                                        },
+                                        "default_value": [
+                                            "content"
+                                        ],
+                                        "allow_null": 0,
+                                        "multiple": 0,
+                                        "ui": 0,
+                                        "ajax": 0,
+                                        "return_format": "value",
+                                        "placeholder": ""
+                                    },
+                                    {
                                         "key": "field_5a92cc9365ef6",
                                         "label": "Content",
                                         "name": "content",
                                         "type": "wysiwyg",
                                         "instructions": "",
                                         "required": 1,
-                                        "conditional_logic": 0,
+                                        "conditional_logic": [
+                                            [
+                                                {
+                                                    "field": "field_5b76b9f715fd8",
+                                                    "operator": "==",
+                                                    "value": "content"
+                                                }
+                                            ]
+                                        ],
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1408,6 +1443,36 @@
                                         "toolbar": "full",
                                         "media_upload": 1,
                                         "delay": 0
+                                    },
+                                    {
+                                        "key": "field_5b76ba4215fd9",
+                                        "label": "Layer Posts",
+                                        "name": "layer_posts",
+                                        "type": "post_object",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": [
+                                            [
+                                                {
+                                                    "field": "field_5b76b9f715fd8",
+                                                    "operator": "==",
+                                                    "value": "layer_posts"
+                                                }
+                                            ]
+                                        ],
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "post_type": [
+                                            "layer"
+                                        ],
+                                        "taxonomy": [],
+                                        "allow_null": 0,
+                                        "multiple": 1,
+                                        "return_format": "object",
+                                        "ui": 1
                                     },
                                     {
                                         "key": "field_5a92cccf65ef7",
@@ -3177,6 +3242,25 @@
                                 "multiple": 0,
                                 "return_format": "object",
                                 "ui": 1
+                            },
+                            {
+                                "key": "field_5b76b9b3844ad",
+                                "label": "Include Wrapper",
+                                "name": "include_wrapper",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 1,
+                                "ui": 1,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
                             }
                         ],
                         "min": "",

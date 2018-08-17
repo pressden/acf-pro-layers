@@ -12,28 +12,35 @@ $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) 
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 ?>
 
-<?php apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container ); ?>
+<?php
+if( $args['include_wrapper'] ) {
+	apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
+}
+?>
 
-	<div class="col">
+<div class="image-col <?php echo ( $args['include_column'] ) ? 'col' : ''; ?>">
 
-		<?php
-		$image_tag = wp_get_attachment_image( $image['ID'], 'full-size', false, array( 'class' => 'img-fluid mx-auto d-block' ) );
-		?>
+	<?php
+	$image_tag = wp_get_attachment_image( $image['ID'], 'full-size', false, array( 'class' => 'img-fluid mx-auto d-block' ) );
+	?>
 
-		<div class="media-container">
+	<div class="media-container">
 
-			<?php if( $link ): ?>
-				<a href="<?php echo $link; ?>" <?php echo $external_url; ?>>
-			<?php endif; ?>
+		<?php if( $link ): ?>
+			<a href="<?php echo $link; ?>" <?php echo $external_url; ?>>
+		<?php endif; ?>
 
-			<?php echo $image_tag; ?>
+		<?php echo $image_tag; ?>
 
-			<?php if( $link ): ?>
-				</a>
-			<?php endif; ?>
-
-		</div>
+		<?php if( $link ): ?>
+			</a>
+		<?php endif; ?>
 
 	</div>
 
-<?php apl_close_layer(); ?>
+</div>
+
+<?php
+if( $args['include_wrapper'] ) {
+	apl_close_layer();
+}

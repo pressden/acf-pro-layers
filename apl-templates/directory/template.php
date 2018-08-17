@@ -15,7 +15,15 @@ $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null
 $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
-apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
+// override the wrapper and column checks if columns are required
+if( $columns > 1 ) {
+	$args['include_wrapper'] = true;
+	$args['include_column'] = true;
+}
+
+if( $args['include_wrapper'] ) {
+	apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
+}
 
 foreach( $contacts as $contact ) {
 	$image = ( $show_images ) ? get_the_post_thumbnail( $contact->ID, 'post_thumbnail', array( 'class' => 'img-fluid mx-auto d-block' ) ) : null;
@@ -52,7 +60,7 @@ foreach( $contacts as $contact ) {
 	}
 	?>
 
-	<div class="directory-contact col-lg-<?php echo $column_size; ?>">
+	<div class="directory-contact <?php echo ( $args['include_column'] ) ? 'col-lg-' . $column_size : ''; ?>">
 
 		<?php
 		// show the image
@@ -85,4 +93,6 @@ foreach( $contacts as $contact ) {
 	<?php
 }
 
-apl_close_layer();
+if( $args['include_wrapper'] ) {
+	apl_close_layer();
+}
