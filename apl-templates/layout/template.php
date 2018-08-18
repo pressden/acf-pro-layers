@@ -6,7 +6,7 @@ Template Name: APL Layout
 // layer fields
 $items = $layer['items'];
 $columns = count( $items );
-// @TODO: Change how "Breakpoint" works with a "none" or "custom" option (allowing the "CSS Classes" to do all the work)
+// @TODO: Change how "Breakpoint" works with a "none" or "custom" option (allowing "CSS Classes" to do all the work)
 $breakpoint = ( isset( $layer['breakpoint'] ) && !is_array( $layer['breakpoint'] ) ) ? $layer['breakpoint'] : 'lg';
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
 $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
@@ -23,8 +23,8 @@ foreach( $items as $item ) {
 	$item_classes = ( isset( $item['item_classes'] ) ) ? $item['item_classes'] : null;
 	?>
 
-	<div class="layout-item-col col-<?php echo $breakpoint; ?> <?php echo $item_classes; ?>">
-		<div class="layout-item">
+	<div class="layout-item col-<?php echo $breakpoint; ?> <?php echo $item_classes; ?>">
+		<div class="layout-item-wrap">
 			
 			<?php
 			if( $item_layers ) {
