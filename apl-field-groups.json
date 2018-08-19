@@ -2158,6 +2158,25 @@
                                 "button_label": "Add Item",
                                 "sub_fields": [
                                     {
+                                        "key": "field_5b785d2b4d973",
+                                        "label": "Item Classes",
+                                        "name": "item_classes",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "col-lg",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
                                         "key": "field_5b785d2b4d971",
                                         "label": "Layers",
                                         "name": "layers",
@@ -2177,25 +2196,6 @@
                                         "layout": "block",
                                         "prefix_label": 0,
                                         "prefix_name": 0
-                                    },
-                                    {
-                                        "key": "field_5b785d2b4d973",
-                                        "label": "Item Classes",
-                                        "name": "item_classes",
-                                        "type": "text",
-                                        "instructions": "",
-                                        "required": 0,
-                                        "conditional_logic": 0,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "default_value": "",
-                                        "placeholder": "",
-                                        "prepend": "",
-                                        "append": "",
-                                        "maxlength": ""
                                     }
                                 ]
                             },
@@ -2217,44 +2217,6 @@
                                 "ui": 1,
                                 "ui_on_text": "",
                                 "ui_off_text": ""
-                            },
-                            {
-                                "key": "field_5b785d2b4d975",
-                                "label": "Breakpoint",
-                                "name": "breakpoint",
-                                "type": "select",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": [
-                                    [
-                                        {
-                                            "field": "field_5b785d2b4d974",
-                                            "operator": "==",
-                                            "value": "1"
-                                        }
-                                    ]
-                                ],
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "choices": {
-                                    "xs": "X-Small",
-                                    "sm": "Small",
-                                    "md": "Medium",
-                                    "lg": "Large",
-                                    "xl": "X-Large"
-                                },
-                                "default_value": [
-                                    "lg"
-                                ],
-                                "allow_null": 0,
-                                "multiple": 0,
-                                "ui": 0,
-                                "ajax": 0,
-                                "return_format": "value",
-                                "placeholder": ""
                             },
                             {
                                 "key": "field_5b785d2b4d976",
