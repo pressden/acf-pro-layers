@@ -36,6 +36,7 @@ function apl_content_layers_filter( $content ) {
 }
 
 // loop through all layers and return the buffered content
+// @TODO: Determine if the $content parameter is necessary any more given that get_queried_object() is called by the "Content" layer
 function apl_buffer_layers( $layers, $content = null, $args = array() ) {
 	// define default args
 	$defaults = array(
