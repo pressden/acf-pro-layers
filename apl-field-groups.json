@@ -2454,7 +2454,7 @@
                                 "name": "display",
                                 "type": "select",
                                 "instructions": "",
-                                "required": 1,
+                                "required": 0,
                                 "conditional_logic": [
                                     [
                                         {
@@ -2471,7 +2471,7 @@
                                 },
                                 "choices": {
                                     "full": "Full Menu",
-                                    "context": "Sub Menu in Context"
+                                    "context": "Contextual Menu"
                                 },
                                 "default_value": [
                                     "full"
@@ -2503,12 +2503,49 @@
                                 "ui_off_text": ""
                             },
                             {
-                                "key": "field_5b78441240a48",
-                                "label": "Layout",
-                                "name": "layout",
+                                "key": "field_5b7845c93b568",
+                                "label": "Menu Style",
+                                "name": "menu_style",
                                 "type": "select",
                                 "instructions": "",
-                                "required": 1,
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5b78412f5b6d4",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "buttons": "Buttons",
+                                    "links": "Links",
+                                    "pills": "Pills",
+                                    "tabs": "Tabs"
+                                },
+                                "default_value": [
+                                    "links"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5b78441240a48",
+                                "label": "Orientation",
+                                "name": "orientation",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
                                 "conditional_logic": [
                                     [
                                         {
@@ -2538,46 +2575,10 @@
                                 "placeholder": ""
                             },
                             {
-                                "key": "field_5b7845c93b568",
-                                "label": "Menu Style",
-                                "name": "menu_style",
+                                "key": "field_5b7aed6a7814c",
+                                "label": "Menu Alignment",
+                                "name": "menu_alignment",
                                 "type": "select",
-                                "instructions": "",
-                                "required": 1,
-                                "conditional_logic": [
-                                    [
-                                        {
-                                            "field": "field_5b78412f5b6d4",
-                                            "operator": "==",
-                                            "value": "1"
-                                        }
-                                    ]
-                                ],
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "choices": {
-                                    "buttons": "Buttons",
-                                    "pills": "Pills",
-                                    "links": "Links"
-                                },
-                                "default_value": [
-                                    "links"
-                                ],
-                                "allow_null": 0,
-                                "multiple": 0,
-                                "ui": 0,
-                                "ajax": 0,
-                                "return_format": "value",
-                                "placeholder": ""
-                            },
-                            {
-                                "key": "field_5b7840f35b6d3",
-                                "label": "Mobile Toggle",
-                                "name": "mobile_toggle",
-                                "type": "true_false",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": [
@@ -2594,11 +2595,94 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "message": "",
-                                "default_value": 1,
-                                "ui": 1,
-                                "ui_on_text": "",
-                                "ui_off_text": ""
+                                "choices": {
+                                    "center": "Center",
+                                    "left": "Left",
+                                    "right": "Right",
+                                    "justify": "Justify"
+                                },
+                                "default_value": [
+                                    "left"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5b7afedac6c2a",
+                                "label": "Text Alignment",
+                                "name": "text_alignment",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5b78412f5b6d4",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "center": "Center",
+                                    "left": "Left",
+                                    "right": "Right"
+                                },
+                                "default_value": [],
+                                "allow_null": 1,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5b7840f35b6d3",
+                                "label": "Mobile Toggle",
+                                "name": "mobile_toggle",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5b78412f5b6d4",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "1": "Never Toggle",
+                                    "sm": "Small",
+                                    "md": "Medium",
+                                    "lg": "Large",
+                                    "xl": "X-Large",
+                                    "0": "Always Toggle"
+                                },
+                                "default_value": [
+                                    "md"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
                             },
                             {
                                 "key": "field_5b78f61ba7992",

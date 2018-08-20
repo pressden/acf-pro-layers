@@ -5,6 +5,7 @@ Template Name: APL Menu
 
 // @TODO: Add validation / condition check logic throughout as needed
 // @TODO: Break template into smaller parts (as needed) to allow for template part overrides
+// @TODO: Add a title so the meny can be labeled
 
 // layer fields
 $menu_type = ( isset( $layer['menu_type'] ) ) ? $layer['menu_type'] : 'wordpress';
@@ -12,16 +13,13 @@ $menu_type = ( isset( $layer['menu_type'] ) ) ? $layer['menu_type'] : 'wordpress
 $wordpress_menu = ( isset( $layer['wordpress_menu'] ) ) ? $layer['wordpress_menu'] : null;
 // @TODO: Add custom menu functionality
 $custom_menu = ( isset( $layer['custom_menu'] ) ) ? $layer['custom_menu'] : null;
-// @TODO: Rename option to "Context Menu" here and in the widget code
 $display = ( isset( $layer['display'] ) && !is_array( $layer['display'] ) ) ? $layer['display'] : 'full';
-// @TODO: Add "fluid" or "justified" layout options
-$layout = ( isset( $layer['layout'] ) && !is_array( $layer['layout'] ) ) ? $layer['layout'] : 'vertical';
-// @TODO: Confirm pills and buttons work as expected
+$orientation = ( isset( $layer['orientation'] ) && !is_array( $layer['orientation'] ) ) ? $layer['orientation'] : 'vertical';
+$menu_alignment = ( isset( $layer['menu_alignment'] ) && !is_array( $layer['menu_alignment'] ) ) ? $layer['menu_alignment'] : 'left';
+$text_alignment = ( isset( $layer['text_alignment'] ) && !is_array( $layer['text_alignment'] ) ) ? $layer['text_alignment'] : null;
 $menu_style = ( isset( $layer['menu_style'] ) && !is_array( $layer['menu_style'] ) ) ? $layer['menu_style'] : 'links';
-// @TODO: Add the mobile toggle logic
-$mobile_toggle = ( isset( $layer['mobile_toggle'] ) && !is_array( $layer['mobile_toggle'] ) ) ? $layer['mobile_toggle'] : 1;
+$mobile_toggle = ( isset( $layer['mobile_toggle'] ) && !is_array( $layer['mobile_toggle'] ) ) ? $layer['mobile_toggle'] : 'md';
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
-// @TODO: Test container-fluid after implementing horizontal (with fluid and/or justified)
 $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 
@@ -44,6 +42,7 @@ switch( $menu_type ) {
 	default:
 		// get the nav menu object
 		$nav_menu = wp_get_nav_menu_object( $wordpress_menu );
+		$menu_id = $apl_unique_id . '-' . $nav_menu->slug;
 		$menu_items = ( ! empty( $nav_menu ) ) ? wp_get_nav_menu_items( $nav_menu ) : null;
 		$menu = array();
 
@@ -58,8 +57,7 @@ switch( $menu_type ) {
 			$post = get_queried_object();
 
 			// extract a contextual sub menu
-			// @TODO: Rename $auto_menu to $context_menu for consistency
-			$auto_menu = array();
+			$context_menu = array();
 
 			// check for a valid menu
 			if( ! empty( $nav_menu ) ) {
@@ -93,53 +91,127 @@ switch( $menu_type ) {
 					}
 				}
 
-				// fill the auto menu based on child relationships first, sibling relationships next
-				$auto_menu = ( ! empty( $child_menu_items ) ) ? $child_menu_items : $sibling_menu_items;
+				// fill the context menu based on child relationships first, sibling relationships next
+				$context_menu = ( ! empty( $child_menu_items ) ) ? $child_menu_items : $sibling_menu_items;
 			}
 
-			$menu = $auto_menu;
+			$menu = $context_menu;
 		}
 		break;
 }
 
 if( ! empty( $menu ) ) {
 	// initialize required variables
-	$menu_class_array = array();
+	$nav_class_array = array();
+	$div_class_array = array();
 
-	// add menu layout classes
-	if( $layout == 'vertical' ) {
-		$menu_class_array[] = 'flex-column';
+	// apply w-100 to ensure a maximum range of options
+	$nav_class_array[] = 'w-100';
+
+	// define a toggle class if we need one
+	if( $mobile_toggle ) {
+		$toggle_class = 'navbar-expand';
+		$toggle_class.= ( $mobile_toggle != 1 ) ? '-' . $mobile_toggle : '';
+		$nav_class_array[] = $toggle_class;
+	}
+
+	// add menu orientation classes
+	if( $orientation == 'vertical' ) {
+		$div_class_array[] = 'navbar-vertical';
 	}
 
 	// add menu style classes
 	if( $menu_style == 'pills' ) {
-		$menu_class_array[] = 'nav-pills';
+		$nav_class_array[] = 'nav-pills';
+	}
+	else if( $menu_style == 'tabs' && $orientation == 'horizontal' ) {
+		$div_class_array[] = 'nav-tabs';
 	}
 
-	$menu_class_string = implode( ' ', $menu_class_array );
+	// add alignemnt classes
+	switch( $menu_alignment ) {
+		case 'justify':
+			$div_class_array[] = 'nav-justified';
+			break;
+
+		case 'center':
+			$div_class_array[] = 'justify-content-center';
+			break;
+
+		case 'right':
+			$div_class_array[] = 'justify-content-end';
+			$div_class_array[] = 'align-items-end';
+			break;
+
+		default:
+			// left is the bootstrap default
+			break;
+	}
+
+	$nav_class_string = implode( ' ', $nav_class_array );
+	$div_class_string = implode( ' ', $div_class_array );
 	?>
 
-	<ul class="nav <?php echo $menu_class_string; ?>">
+	<nav class="navbar navbar-light <?php echo $nav_class_string; ?>">
 
-		<?php
-		foreach( $menu as $menu_item ) {
-			// initialize required variables
-			$item_class_array = array();
-			$link_class_array = array();
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#<?php echo $menu_id; ?>" aria-controls="<?php echo $menu_id; ?>" aria-expanded="false" aria-label="Toggle Navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-			if( $menu_item->url == get_the_permalink( $post ) ) {
-				$link_class_array[] = 'active';
-			}
-
-			$item_class_string = implode( ' ', $item_class_array );
-			$link_class_string = implode( ' ', $link_class_array );
-			?>
-
-			<li class="nav-item <?php echo $item_class_string; ?>"><a href="<?php echo $menu_item->url; ?>" title="<?php echo $menu_item->title; ?>" class="nav-link <?php echo $link_class_string; ?>"><?php echo $menu_item->title; ?></a></li>
+		<div id="<?php echo $menu_id; ?>" class="collapse navbar-collapse <?php echo $div_class_string; ?>">
 
 			<?php
-		}
-		?>
+			foreach( $menu as $menu_item ) {
+				// initialize required variables
+				$link_class_array = array();
+
+				// ensure vertical menu items run full width of their container
+				if( $orientation == 'vertical' ) {
+					$link_class_array[] = 'w-100';
+				}
+
+				// add button styles
+				if( $menu_style == 'buttons' ) {
+					$link_class_array[] = 'btn';
+					$link_class_array[] = 'btn-light';
+
+					if( $orientation == 'vertical' ) {
+						$link_class_array[] = 'my-1';
+					}
+					else {
+						$link_class_array[] = 'mx-1';
+					}
+				}
+
+				// add alignemnt classes
+				switch( $text_alignment ) {
+					case 'center':
+						$link_class_array[] = 'text-center';
+						break;
+
+					case 'right':
+						$link_class_array[] = 'text-right';
+						break;
+
+					default:
+						// left is the bootstrap default
+						break;
+				}
+
+				if( $menu_item->url == get_the_permalink( $post ) ) {
+					$link_class_array[] = 'active';
+				}
+
+				$link_class_string = implode( ' ', $link_class_array );
+				?>
+
+				<a href="<?php echo $menu_item->url; ?>" title="<?php echo $menu_item->title; ?>" class="nav-item nav-link <?php echo $link_class_string; ?>"><?php echo $menu_item->title; ?></a></li>
+
+				<?php
+			}
+			?>
+
+		</div>
 
 	</ul>
 
