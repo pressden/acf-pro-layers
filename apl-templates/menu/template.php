@@ -152,7 +152,7 @@ if( ! empty( $menu ) ) {
 	$div_class_string = implode( ' ', $div_class_array );
 	?>
 
-	<nav class="navbar navbar-light <?php echo $nav_class_string; ?>">
+	<nav class="navbar navbar-light p-0 <?php echo $nav_class_string; ?>">
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#<?php echo $menu_id; ?>" aria-controls="<?php echo $menu_id; ?>" aria-expanded="false" aria-label="Toggle Navigation">
 			<span class="navbar-toggler-icon"></span>
