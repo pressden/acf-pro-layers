@@ -5,6 +5,9 @@ $related_post = ( isset( $related['post'] ) ) ? $related['post'] : null;
 // the post title
 $related_post_title = null;
 
+// the post title icon
+$related_post_title_icon = $title_icon;
+
 // the post image
 $related_post_image = null;
 
@@ -59,6 +62,8 @@ if( $related_post ) {
 }
 
 $related_post_title = ( $related['title'] ) ? $related['title'] : $related_post_title;
+$related_post_title_icon = ( $related['title_icon'] ) ? $related['title_icon'] : $related_post_title_icon;
+$related_post_title_icon = ( $related_post_title_icon ) ? '<i class="material-icons">' . $related_post_title_icon . '</i>' : null;
 $related_post_excerpt = ( $related['excerpt'] ) ? $related['excerpt'] : $related_post_excerpt;
 $is_excerpt_truncated = ( $related['excerpt'] ) ? false : $is_excerpt_truncated; // manually entered excerpts are never truncated
 // @TODO: explore options for lazy loading images (especially slider images) - e.g. https://coderwall.com/p/6qaeya/lazy-carousel-in-bootstrap
@@ -126,13 +131,35 @@ else {
 			<div class="related-post-info">
 		<?php endif; ?>
 
-			<?php if( $show_titles ): ?>
-				<<?php echo $title_tag; ?> class="related-post-title">
-					<?php echo $related_post_anchor_open; ?>
-					<?php echo $related_post_title; ?>
-					<?php echo $related_post_anchor_close; ?>
-				</<?php echo $title_tag; ?>>
-			<?php endif; ?>
+			<?php
+			// render the title icon if position is 'above'
+			if( $related_post_title_icon && $title_icon_position == 'above' ) {
+				echo '<div class="related-post-title-icon title-icon-above">' . $related_post_title_icon . '</div>';
+			}
+
+			if( $show_titles ) {
+				echo '<' . $title_tag . ' class="related-post-title">';
+				echo $related_post_anchor_open;
+
+				if( $related_post_title_icon && $title_icon_position == 'left' ) {
+					echo '<span class="related-post-title-icon title-icon-left">' . $related_post_title_icon . '</span>';
+				}
+
+				echo $related_post_title;
+
+				if( $related_post_title_icon && $title_icon_position == 'right' ) {
+					echo '<span class="related-post-title-icon title-icon-right">' . $related_post_title_icon . '</span>';
+				}
+
+				echo $related_post_anchor_close;
+				echo '</' . $title_tag . '>';
+			}
+
+			// render the title icon if position is 'below'
+			if( $related_post_title_icon && $title_icon_position == 'below' ) {
+				echo '<div class="related-post-title-icon title-icon-below">' . $related_post_title_icon . '</div>';
+			}
+			?>
 
 			<?php if( $show_excerpts && $related_post_excerpt ): ?>
 				<div class="related-post-excerpt">

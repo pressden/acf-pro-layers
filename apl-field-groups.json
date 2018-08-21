@@ -2941,6 +2941,38 @@
                                         "maxlength": ""
                                     },
                                     {
+                                        "key": "field_5b7c2a01ade5a",
+                                        "label": "Title Icon",
+                                        "name": "title_icon",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": [
+                                            [
+                                                {
+                                                    "field": "field_58f896572e16b",
+                                                    "operator": "==",
+                                                    "value": "1"
+                                                },
+                                                {
+                                                    "field": "field_58f8ac7447039",
+                                                    "operator": "==",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        ],
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
                                         "key": "field_58f891254a449",
                                         "label": "Excerpt",
                                         "name": "excerpt",
@@ -3533,6 +3565,67 @@
                                 },
                                 "default_value": [
                                     "h3"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5b7c1db50172f",
+                                "label": "Title Icon",
+                                "name": "title_icon",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a68dada475e5",
+                                            "operator": "==",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "field": "field_58f8ac7447039",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_5b7c1ddc01731",
+                                "label": "Title Icon Position",
+                                "name": "title_icon_position",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "above": "Above Title (block)",
+                                    "below": "Below Title (block)",
+                                    "left": "Left of Title (inline)",
+                                    "right": "Right of Title (inline)"
+                                },
+                                "default_value": [
+                                    "above"
                                 ],
                                 "allow_null": 0,
                                 "multiple": 0,

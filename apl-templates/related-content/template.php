@@ -11,6 +11,8 @@ $columns = ( $layout == 'slider' ) ? 1 : $columns; // force sliders to one colum
 $column_size = 12 / $columns;
 $show_titles = $layer['show_titles'];
 $title_tag = ( isset( $layer['title_tag'] ) && !is_array( $layer['title_tag'] ) ) ? $layer['title_tag'] : 'h3';
+$title_icon = ( isset( $layer['title_icon'] ) ) ? $layer['title_icon'] : null;
+$title_icon_position = ( isset( $layer['title_icon_position'] ) && !is_array( $layer['title_icon_position'] ) ) ? $layer['title_icon_position'] : 'above';
 $show_images = $layer['show_images'];
 $show_excerpts = $layer['show_excerpts'];
 $show_buttons = $layer['show_buttons'];
