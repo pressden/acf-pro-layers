@@ -3014,6 +3014,11 @@
                                         "conditional_logic": [
                                             [
                                                 {
+                                                    "field": "field_5a68dada475e5",
+                                                    "operator": "==",
+                                                    "value": "1"
+                                                },
+                                                {
                                                     "field": "field_58f8951af17ba",
                                                     "operator": "==",
                                                     "value": "1"
