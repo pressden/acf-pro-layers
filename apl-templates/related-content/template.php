@@ -21,6 +21,7 @@ $button_classes = ( isset( $layer['button_classes'] ) ) ? $layer['button_classes
 $randomize = $layer['randomize'];
 $limit = $layer['limit'];
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
+$css_classes.= ' ' . $layer_name . '-layout-' . $layout;
 $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
 $entry_wrap = ( isset( $layer['entry_wrap'] ) && !is_array( $layer['entry_wrap'] ) ) ? $layer['entry_wrap'] : 'div';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
