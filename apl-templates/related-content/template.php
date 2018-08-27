@@ -49,7 +49,26 @@ switch( $selection_method ) {
 	$posts_per_page = ( isset( $query_settings['result_limit'] ) ) ? $query_settings['result_limit'] : 3;
 	$require_images = ( isset( $query_settings['result_limit'] ) ) ? $query_settings['result_limit'] : 0;
 	$taxonomies = ( isset( $query_settings['taxonomies'] ) ) ? $query_settings['taxonomies'] : null;
-	$preset_file = ( isset( $query_settings['preset'] ) ) ? plugin_dir_path( __FILE__ ) . 'queries/' . $query_settings['preset'] . '.php' : null;
+	$preset = ( isset( $query_settings['preset'] ) ) ? $query_settings['preset'] : null;
+	$preset_array = ( $preset ) ? explode( ',', $preset ) : array();
+	$preset_file_array = array();
+
+	// locate the preset file by looking in childtheme followed by the plugin directory
+	if( $preset ) {
+		foreach( $preset_array as $preset_string ) {
+			if( file_exists( get_stylesheet_directory() . '/apl-templates/related-content/queries/' . $preset_string . '.php' ) ) {
+				$preset_file_array[] = get_stylesheet_directory() . '/apl-templates/related-content/queries/' . $preset_string . '.php';
+			}
+			else if( file_exists( plugin_dir_path( __FILE__ ) . 'queries/' . $query_settings['preset'] . '.php' ) ) {
+				$preset_file_array[] = plugin_dir_path( __FILE__ ) . 'queries/' . $query_settings['preset'] . '.php';
+			}
+		}
+	}
+
+	// if no preset files were found there are no presets
+	if( empty( $preset_file_array ) ) {
+		$preset = null;
+	}
 
 	// convert $post_type to an array
 	if( is_string( $post_type ) ) {
@@ -99,8 +118,10 @@ switch( $selection_method ) {
 	}
 
 	// include a preset file which can override any of the above defaults
-	if( file_exists( $preset_file ) ) {
-		include( $preset_file );
+	if( $preset ) {
+		foreach( $preset_file_array as $preset_file ) {
+			include( $preset_file );
+		}
 	}
 
 	// query the database with our custom $args
