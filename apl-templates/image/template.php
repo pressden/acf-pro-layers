@@ -6,13 +6,10 @@ Template Name: APL Image
 // layer fields
 $image = $layer['image'];
 $link = $layer['link'];
-$external_url = ( isset( $layer['external_url'] ) ) ? 'target="_blank"' : null;
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
 $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
-?>
 
-<?php
 if( $args['include_wrapper'] ) {
 	apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
 }
@@ -26,15 +23,20 @@ if( $args['include_wrapper'] ) {
 
 	<div class="media-container">
 
-		<?php if( $link ): ?>
-			<a href="<?php echo $link; ?>" <?php echo $external_url; ?>>
-		<?php endif; ?>
+		<?php
+		if( $link ) {
+			$link_title = ( $link['title'] ) ? 'title="' . $link['title'] . '"' : null;
+			$link_target = ( $link['target'] ) ? 'target="' . $link['target'] . '"' : null;
 
-		<?php echo $image_tag; ?>
+			echo '<a href="' . $link['url'] . '" ' . $link_title . ' ' . $link_target . '>';
+		}
 
-		<?php if( $link ): ?>
-			</a>
-		<?php endif; ?>
+		echo $image_tag;
+
+		if( $link ) {
+			echo '</a>';
+		}
+		?>
 
 	</div>
 
