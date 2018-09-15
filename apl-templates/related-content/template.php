@@ -136,6 +136,11 @@ switch( $selection_method ) {
 	break;
 }
 
+// exit early if there are no related posts
+if( !$related_posts ) {
+	return;
+}
+
 if( $args['include_wrapper'] ) {
 	apl_open_layer( $layer_name, $apl_unique_id, $css_classes, $attributes, $container );
 }
