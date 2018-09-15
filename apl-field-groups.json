@@ -290,7 +290,7 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": 1,
-        "description": "Custom fields used by the Contacts custom post type."
+        "description": "Custom fields used by the Contact custom post type."
     },
     {
         "key": "group_58e7b3f0db208",
