@@ -35,6 +35,33 @@ function apl_content_layers_filter( $content ) {
 	return $output;
 }
 
+add_shortcode( 'layer' , 'apl_layer_shortcode' );
+function apl_layer_shortcode( $args ) {
+	// define default args
+	$defaults = array(
+		'include_wrapper' => false,
+		'include_column' => false,
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	// initialize required variables
+	$output = '';
+	$layers = null;
+	$post = get_post( $args['id'] );
+
+	if( $post ) {
+		$layers = get_field_object( 'content_layers', $post->ID );
+	}
+
+	if( $layers ) {
+		$output = apl_buffer_layers( $layers, $content, $args );
+		return $output;
+	}
+
+	return;
+}
+
 // loop through all layers and return the buffered content
 // @TODO: Determine if the $content parameter is necessary any more given that get_queried_object() is called by the "Content" layer
 function apl_buffer_layers( $layers, $content = null, $args = array() ) {
