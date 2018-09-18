@@ -3436,82 +3436,6 @@
                         "display": "row",
                         "sub_fields": [
                             {
-                                "key": "field_58f890ae4a445",
-                                "label": "Columns",
-                                "name": "columns",
-                                "type": "select",
-                                "instructions": "",
-                                "required": 1,
-                                "conditional_logic": [
-                                    [
-                                        {
-                                            "field": "field_5a7228555f723",
-                                            "operator": "!=",
-                                            "value": "slider"
-                                        },
-                                        {
-                                            "field": "field_5a7228555f723",
-                                            "operator": "!=",
-                                            "value": "list"
-                                        }
-                                    ]
-                                ],
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "choices": {
-                                    "1": "1",
-                                    "2": "2",
-                                    "3": "3",
-                                    "4": "4",
-                                    "5": "5",
-                                    "6": "6",
-                                    "7": "7",
-                                    "8": "8",
-                                    "9": "9"
-                                },
-                                "default_value": [
-                                    3
-                                ],
-                                "allow_null": 0,
-                                "multiple": 0,
-                                "ui": 0,
-                                "return_format": "value",
-                                "ajax": 0,
-                                "placeholder": ""
-                            },
-                            {
-                                "key": "field_5a7228555f723",
-                                "label": "Layout",
-                                "name": "layout",
-                                "type": "select",
-                                "instructions": "",
-                                "required": 1,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "choices": {
-                                    "carousel": "Carousel",
-                                    "grid": "Grid",
-                                    "list": "List",
-                                    "slider": "Slider"
-                                },
-                                "default_value": [
-                                    "grid"
-                                ],
-                                "allow_null": 0,
-                                "multiple": 0,
-                                "ui": 0,
-                                "return_format": "value",
-                                "ajax": 0,
-                                "placeholder": ""
-                            },
-                            {
                                 "key": "field_5b464b1d36883",
                                 "label": "Selection Method",
                                 "name": "selection_method",
@@ -4115,6 +4039,82 @@
                                 ]
                             },
                             {
+                                "key": "field_5a7228555f723",
+                                "label": "Layout",
+                                "name": "layout",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "carousel": "Carousel",
+                                    "grid": "Grid",
+                                    "list": "List",
+                                    "slider": "Slider"
+                                },
+                                "default_value": [
+                                    "grid"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "return_format": "value",
+                                "ajax": 0,
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_58f890ae4a445",
+                                "label": "Columns",
+                                "name": "columns",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5a7228555f723",
+                                            "operator": "!=",
+                                            "value": "slider"
+                                        },
+                                        {
+                                            "field": "field_5a7228555f723",
+                                            "operator": "!=",
+                                            "value": "list"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "1": "1",
+                                    "2": "2",
+                                    "3": "3",
+                                    "4": "4",
+                                    "5": "5",
+                                    "6": "6",
+                                    "7": "7",
+                                    "8": "8",
+                                    "9": "9"
+                                },
+                                "default_value": [
+                                    3
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "return_format": "value",
+                                "ajax": 0,
+                                "placeholder": ""
+                            },
+                            {
                                 "key": "field_5a68dada475e5",
                                 "label": "Customize",
                                 "name": "customize",
@@ -4436,6 +4436,11 @@
                                 "required": 1,
                                 "conditional_logic": [
                                     [
+                                        {
+                                            "field": "field_5b464b1d36883",
+                                            "operator": "==",
+                                            "value": "manual"
+                                        },
                                         {
                                             "field": "field_5b425fcf11e5f",
                                             "operator": "==",
