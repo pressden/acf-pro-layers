@@ -61,7 +61,7 @@ $related_post_rel = ( $related_post_no_follow ) ? 'rel="nofollow"' : null;
 			<?php echo $related_post_image; ?>
 		</div>
 
-	</<?php echo $entry_wrap; ?>>
+	</a>
 
 </div>
 

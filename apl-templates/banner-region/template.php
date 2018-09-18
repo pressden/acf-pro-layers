@@ -15,7 +15,6 @@ $limit = $layer['limit'];
 $css_classes = ( isset( $layer['css_classes'] ) ) ? $layer['css_classes'] : null;
 $css_classes.= ' ' . $layer_name . '-layout-' . $layout;
 $container = ( isset( $layer['container'] ) && !is_array( $layer['container'] ) ) ? $layer['container'] : 'container';
-$entry_wrap = 'a';
 $attributes = ( isset( $layer['attributes'] ) ) ? $layer['attributes'] : null;
 $count = 0; // count is required for some templates
 
