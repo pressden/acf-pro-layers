@@ -54,15 +54,11 @@ $related_post_rel = ( $related_post_no_follow ) ? 'rel="nofollow"' : null;
 ?>
 
 <div class="<?php echo $related_classes; ?>">
-
-	<a <?php echo $related_post_href . ' ' . $related_post_target; ?> class="banner-wrap">
-
+	<a <?php echo $related_post_href . ' ' . $related_post_target . ' ' . $related_post_rel; ?> class="banner-wrap">
 		<div class="banner-image media-container">
 			<?php echo $related_post_image; ?>
 		</div>
-
 	</a>
-
 </div>
 
 <?php $count++; ?>
