@@ -47,7 +47,7 @@ switch( $selection_method ) {
 	$query_settings = $layer['query_settings'];
 	$post_type = ( isset( $query_settings['post_type'] ) ) ? $query_settings['post_type'] : array( 'post' );
 	$posts_per_page = ( isset( $query_settings['result_limit'] ) ) ? $query_settings['result_limit'] : 3;
-	$require_images = ( isset( $query_settings['result_limit'] ) ) ? $query_settings['result_limit'] : 0;
+	$require_images = ( isset( $query_settings['require_images'] ) ) ? $query_settings['require_images'] : 0;
 	$taxonomies = ( isset( $query_settings['taxonomies'] ) ) ? $query_settings['taxonomies'] : null;
 	$preset = ( isset( $query_settings['preset'] ) ) ? $query_settings['preset'] : null;
 	$preset_array = ( $preset ) ? explode( ',', $preset ) : array();
