@@ -84,6 +84,10 @@ $related_classes = 'related-post';
 
 // layout related classes
 switch( $layout ) {
+	case 'carousel':
+		$related_classes.= ' gallery-item';
+	break;
+
 	case 'slider':
 		$related_classes.= ' carousel-item';
 		$related_classes.= ( $count == 0 ) ? ' active' : '';
