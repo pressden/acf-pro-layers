@@ -131,7 +131,7 @@ else {
 			</div>
 		<?php endif; ?>
 
-		<?php if( $show_titles || $show_excerpts || $show_buttons ): ?>
+		<?php if( ( $show_titles && $related_post_title ) || ( $show_excerpts && $related_post_excerpt ) || ( $show_buttons && $related_post_url ) ): ?>
 			<div class="related-post-info">
 		<?php endif; ?>
 
@@ -190,7 +190,7 @@ else {
 				</div>
 			<?php endif; ?>
 
-		<?php if( $show_titles || $show_excerpts || $show_buttons ): ?>
+		<?php if( ( $show_titles && $related_post_title ) || ( $show_excerpts && $related_post_excerpt ) || ( $show_buttons && $related_post_url ) ): ?>
 			</div>
 		<?php endif; ?>
 
