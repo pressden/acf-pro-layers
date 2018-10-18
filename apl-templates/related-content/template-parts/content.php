@@ -141,7 +141,7 @@ else {
 				echo '<div class="related-post-title-icon title-icon-above">' . $related_post_title_icon . '</div>';
 			}
 
-			if( $show_titles ) {
+			if( $show_titles && $related_post_title ) {
 				echo '<' . $title_tag . ' class="related-post-title">';
 				echo $related_post_anchor_open;
 
