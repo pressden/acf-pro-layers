@@ -38,6 +38,19 @@ if( $args['include_wrapper'] ) {
 <div class="hero-col px-0 <?php echo ( $args['include_column'] ) ? 'col' : ''; ?>">
     <div class="hero-image media-container card">
 
+        <?php/* 
+            // if ($video_url) {
+
+            } else if () {
+                // background image (hero image)
+            } else {
+                // color picker
+            }
+        
+        
+        
+        */?>
+
      <?php
             $background_image_tag = wp_get_attachment_image( $background_image['ID'], 'full-size', false, array( 'class' => 'img-fluid mx-auto d-block card-img', 'style' => 'width: 100%' ) );
             if ( $background_image_tag && !$background_video_url ){
