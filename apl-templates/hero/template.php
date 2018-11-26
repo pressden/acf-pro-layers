@@ -36,40 +36,40 @@ if( $args['include_wrapper'] ) {
 ?>
 
 <div class="hero-col px-0 <?php echo ( $args['include_column'] ) ? 'col' : ''; ?>">
-        <div class="hero-image media-container card">
-            <?php
-                $background_image_tag = wp_get_attachment_image( $background_image['ID'], 'full-size', false, array( 'class' => 'img-fluid mx-auto d-block card-img', 'style' => 'width: 100%' ) );
-                if ( $background_image_tag && !$background_video_url ){
-                    echo $background_image_tag;
-                } else if ( $background_video_url && $background_image_tag ){
-                    echo $videoLayout;
-                } else if ( $background_video_url ) {
-                    echo $videoLayout;
-                }
-            ?>     
-            <?php if ( $title || $excerpt || $button_text ): ?>
-                <div class="hero-info card-img-overlay d-flex justify-content-center align-items-center flex-column">
-                    <div class="hero-text-inner-container">
-                        <?php if ( $title ): ?>
-                            <h3 class="hero-title">
-                                <?php if( $title ) { echo '<' . $title_tag . '>' . $title . '</' . $title_tag . '>'; } ?>
-                            </h3>
-                        <?php endif ?>
-                        <?php if ( $excerpt ): ?>
-                            <div class="hero-excerpt">
-                                <p><?php echo $excerpt;?></p>
-                            </div>
-                        <?php endif ?>
-                        <?php if ( $button_text ): ?>
-                            <div class="hero-button btn btn-primary">
-                                <a href="<?php echo $button_link['url'];?>" class=""><?php echo $button_text; ?></a>
-                            </div>
-                        <?php endif ?>
-                    </div>
-                </div>
-            <?php endif ?>    
-        </div>
+    <div class="hero-image media-container card">
 
+     <?php
+            $background_image_tag = wp_get_attachment_image( $background_image['ID'], 'full-size', false, array( 'class' => 'img-fluid mx-auto d-block card-img', 'style' => 'width: 100%' ) );
+            if ( $background_image_tag && !$background_video_url ){
+                echo $background_image_tag;
+            } else if ( $background_video_url && $background_image_tag ){
+                echo $videoLayout;
+            } else if ( $background_video_url ) {
+                echo $videoLayout;
+            }
+        ?>     
+        <?php if ( $title || $excerpt || $button_link ): ?>
+            <div class="hero-info card-img-overlay d-flex justify-content-center align-items-center flex-column">
+                <div class="hero-text-inner-container">
+                    <?php if ( $title ): ?>
+                        <h3 class="hero-title">
+                            <?php if( $title ) { echo '<' . $title_tag . '>' . $title . '</' . $title_tag . '>'; } ?>
+                        </h3>
+                    <?php endif ?>
+                    <?php if ( $excerpt ): ?>
+                        <div class="hero-excerpt">
+                            <p><?php echo $excerpt;?></p>
+                        </div>
+                    <?php endif ?>
+                    <?php if ( $button_link ): ?>
+                        <div class="hero-button btn btn-primary">
+                            <a href="<?php echo $button_link['url'];?>" class=""><?php echo $button_text; ?></a>
+                        </div>
+                    <?php endif ?>
+                </div>
+            </div>
+        <?php endif ?>    
+    </div>
 </div>
 
 <?php
