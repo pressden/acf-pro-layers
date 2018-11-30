@@ -55,9 +55,9 @@ if( $args['include_wrapper'] ) {
             <div class="hero-info card-img-overlay d-flex justify-content-center align-items-center flex-column">
                 <div class="hero-text-inner-container">
                     <?php if ( $title ): ?>
-                        <h3 class="hero-title">
-                            <?php if( $title ) { echo '<' . $title_tag . '>' . $title . '</' . $title_tag . '>'; } ?>
-                        </h3>
+                            <?php /* echo($title_tag); */?>
+                            <?php if( $title ) { echo '<' . $title_tag . ' class="hero-headline" ' . '>' . $title . '</' . $title_tag . '>'; } ?>
+    
                     <?php endif ?>
                     <?php if ( $excerpt ): ?>
                         <div class="hero-excerpt">
