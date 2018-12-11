@@ -20,8 +20,18 @@ function apl_content_layers_filter( $content ) {
 	// get the layers field from ACF
 	$layers = get_field_object( 'content_layers' );
 
+	// exit without markup if there are no layers and content is empty
+	if( !layers && !$content ) {
+		return $content;
+	}
+
 	// if there are no layers wrap the WordPress content in APL markup for consistency
 	if( !$layers || ( isset( $layers['value'] ) && !$layers['value'] ) ) {
+		// return without markup if there is no content (prevents excess whitespace)
+		if( !$content ) {
+			return $content;
+		}
+
 		$layers['value'] = array(
 			0 => array(
 				'acf_fc_layout' => 'content',
