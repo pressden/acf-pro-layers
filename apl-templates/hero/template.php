@@ -39,7 +39,7 @@ switch( $bg_video_type ) {
 }
 ?>
 
-<div class="hero-col px-0 <?php echo ( $args['include_column'] ) ? 'col' : ''; ?>">
+<div class="hero-col <?php echo ( $args['include_column'] ) ? 'col' : ''; ?>">
 
   <div class="hero-media <?php echo ( $bg_video_url ) ? 'hero-video' : 'hero-image'; ?> media-container">
 
