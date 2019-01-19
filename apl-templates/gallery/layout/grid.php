@@ -1,8 +1,8 @@
-<div id="<?php echo $apl_unique_id; ?>-gallery" class="gallery gallery-columns-<?php echo $columns; ?>">
+<div id="<?php echo $apl_unique_id; ?>-gallery" class="gallery gallery-columns-<?php echo $columns; ?> col">
 
 	<?php
 	$count = 0;
-	
+
 	// force grid and carousel to link to slider if one is available
 	$link_to = ( in_array( $layout, array( 'slider-carousel', 'slider-grid' ) ) ) ? 'Slider' : $link_to;
 	?>
