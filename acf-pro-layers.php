@@ -16,7 +16,7 @@ function apl_content_layers_filter( $content ) {
 	if( !is_page() && !is_singular() || !is_main_query() ) {
 		return $content;
 	}
-	
+
 	// get the layers field from ACF
 	$layers = get_field_object( 'content_layers' );
 
@@ -213,4 +213,21 @@ function apl_get_template_buffer( $template, $layer, $args = array() ) {
 	}
 
 	return null;
+}
+
+// get template part by path with support for child / parent theme overrides
+function apl_get_template_part( $path ) {
+  $template = null;
+
+	if( is_file( get_stylesheet_directory() . '/' . $path ) ) {
+		$template = get_stylesheet_directory() . '/' . $path;
+	}
+	else if( is_file( get_template_directory() . '/' . $path ) ) {
+		$template = get_template_directory() . '/' . $path;
+	}
+	else if( is_file( plugin_dir_path( __FILE__ ) . $path ) ) {
+		$template = plugin_dir_path( __FILE__ ) . $path;
+  }
+
+  return $template;
 }

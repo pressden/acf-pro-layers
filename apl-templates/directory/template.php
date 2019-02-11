@@ -63,8 +63,13 @@ foreach( $contacts as $contact ) {
 	<div class="directory-contact <?php echo ( $args['include_column'] ) ? 'col-lg-' . $column_size : ''; ?>">
 
 		<?php
-		// show the image
-		include( plugin_dir_path( __FILE__ ) . 'template-parts/image.php' );
+    // show the image template part
+    $template_part = apl_get_template_part( 'apl-templates/directory/template-parts/image.php' );
+
+    // include the template part
+    if( $template_part ) {
+      include( $template_part );
+    }
 
 		// show the contact information
 		if( count( $display ) ) {
@@ -74,11 +79,13 @@ foreach( $contacts as $contact ) {
 
 				<?php
 				foreach( $display as $part ) {
-					$template_part = plugin_dir_path( __FILE__ ) . 'template-parts/' . $part . '.php';
+          // get the template part
+          $template_part = apl_get_template_part( 'apl-templates/directory/template-parts/' . $part . '.php' );
 
-					if( file_exists( $template_part ) ) {
-						include( $template_part );
-					}
+          // include the template part
+          if( $template_part ) {
+            include( $template_part );
+          }
 				}
 				?>
 
