@@ -26,7 +26,7 @@ $video_fallback_image = '<div class="d-sm-none"><img src="' .$background_image['
 
 switch( $bg_video_type ) {
   case 'HTML5':
-  $videoLayout = '<video class="d-none d-sm-block" width="100%" autoplay muted><source src="' . $bg_video_url . '" type="video/mp4"></video>' . $video_fallback_image;
+  $videoLayout = '<video class="d-none d-sm-block" width="100%" autoplay loop muted><source src="' . $bg_video_url . '" type="video/mp4"></video>' . $video_fallback_image;
   break;
 
   case 'YouTube':
