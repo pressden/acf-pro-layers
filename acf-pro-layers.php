@@ -21,7 +21,7 @@ function apl_content_layers_filter( $content ) {
 	$layers = get_field_object( 'content_layers' );
 
 	// exit without markup if there are no layers and content is empty
-	if( !layers && !$content ) {
+	if( !$layers && !$content ) {
 		return $content;
 	}
 
