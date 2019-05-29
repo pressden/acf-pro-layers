@@ -169,6 +169,8 @@ else {
 				<div class="related-post-excerpt">
 
 					<?php
+          $ellipsis_link = '';
+
 					if( $is_excerpt_truncated ) {
 						// add ellipis
 						$ellipsis_link = ' ... ';
