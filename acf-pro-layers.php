@@ -17,27 +17,12 @@ function apl_content_layers_filter( $content ) {
 		return $content;
 	}
 
-	// get the layers field from ACF
-	$layers = get_field_object( 'content_layers' );
+	// get the layers field from ACF if content exists in layers
+  $layers = ( have_rows( 'content_layers' ) ) ? get_field_object( 'content_layers' ) : null;
 
-	// exit without markup if there are no layers and content is empty
-	if( !$layers && !$content ) {
+  // exit without markup if there are no layers
+	if( !$layers ) {
 		return $content;
-	}
-
-	// if there are no layers wrap the WordPress content in APL markup for consistency
-	if( !$layers || ( isset( $layers['value'] ) && !$layers['value'] ) ) {
-		// return without markup if there is no content (prevents excess whitespace)
-		if( !$content ) {
-			return $content;
-		}
-
-		$layers['value'] = array(
-			0 => array(
-				'acf_fc_layout' => 'content',
-				'content' => $content,
-			),
-		);
 	}
 
 	$output = apl_buffer_layers( $layers, $content );
