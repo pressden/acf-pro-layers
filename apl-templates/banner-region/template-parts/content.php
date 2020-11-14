@@ -11,6 +11,9 @@ $related_post_image = null;
 // the post URL
 $related_post_url = null;
 
+// the post target
+$related_post_target = null;
+
 // the CSS classes
 $related_css_classes = null;
 

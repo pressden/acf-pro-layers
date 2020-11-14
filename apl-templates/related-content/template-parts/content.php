@@ -22,6 +22,9 @@ $is_excerpt_truncated = false;
 $related_post_url = null;
 $related_post_external_url = false;
 
+// the post target
+$related_post_target = null;
+
 // the CSS classes
 $related_css_classes = null;
 
