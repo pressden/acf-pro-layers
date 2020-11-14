@@ -36,21 +36,6 @@ if( $related_post ) {
 		if( has_excerpt( $related_post->ID ) ) {
 			$related_post_excerpt = get_post_field( 'post_excerpt', $related_post->ID );
 		}
-		// otherwise fallback to genesis settings for content excerpts
-		else if( 'excerpts' === genesis_get_option( 'content_archive' ) ) {
-			// get the post content
-			$related_post_excerpt = get_post_field( 'post_content', $related_post->ID );
-
-			// strip tags and shortcodes so the content truncation count is done correctly
-			$related_post_excerpt = strip_tags( strip_shortcodes( $related_post_excerpt ), apply_filters( 'get_the_content_limit_allowedtags', '<script>,<style>' ) );
-
-			// remove inline styles / scripts
-			$related_post_excerpt = trim( preg_replace( '#<(s(cript|tyle)).*?</\1>#si', '', $related_post_excerpt ) );
-
-			// truncate content to the content archive limit
-			$related_post_excerpt = genesis_truncate_phrase( $related_post_excerpt, (int) genesis_get_option( 'content_archive_limit' ) );
-			$is_excerpt_truncated = true;
-		}
 		// if the excerpt is still empty get the content instead
 		else {
 			$related_post_excerpt = get_post_field( 'post_content', $related_post->ID );
